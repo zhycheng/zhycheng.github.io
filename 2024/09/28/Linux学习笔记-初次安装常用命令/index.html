@@ -4,18 +4,19 @@
   <meta charset="utf-8">
   
   
-  <title>Hello World | zhycheng‘s blog</title>
+  <title>Linux学习笔记--初次安装常用命令 | zhycheng‘s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="常用命令tty 打印当前连接终端  (Print the file name of the terminal connected to standard input.)who 登录的用户(Print information about users who are currently logged in.)whoami  当前用户who am i  详细sudo -i 切换城root用户 hostn">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2024/08/13/hello-world/index.html">
+<meta property="og:title" content="Linux学习笔记--初次安装常用命令">
+<meta property="og:url" content="http://example.com/2024/09/28/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%88%9D%E6%AC%A1%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="zhycheng‘s blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="常用命令tty 打印当前连接终端  (Print the file name of the terminal connected to standard input.)who 登录的用户(Print information about users who are currently logged in.)whoami  当前用户who am i  详细sudo -i 切换城root用户 hostn">
 <meta property="og:locale">
-<meta property="article:published_time" content="2024-08-13T01:47:23.154Z">
-<meta property="article:modified_time" content="2024-08-13T01:47:23.154Z">
+<meta property="article:published_time" content="2024-09-28T13:16:22.000Z">
+<meta property="article:modified_time" content="2024-09-28T15:16:06.969Z">
 <meta property="article:author" content="zhycheng">
+<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="../../../../atom.xml" title="zhycheng‘s blog" type="application/atom+xml">
@@ -75,10 +76,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-Linux学习笔记-初次安装常用命令" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="" class="article-date">
-  <time class="dt-published" datetime="2024-08-13T01:47:23.154Z" itemprop="datePublished">2024-08-13</time>
+  <time class="dt-published" datetime="2024-09-28T13:16:22.000Z" itemprop="datePublished">2024-09-28</time>
 </a>
     
   </div>
@@ -89,7 +90,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      Hello World
+      Linux学习笔记--初次安装常用命令
     </h1>
   
 
@@ -97,42 +98,34 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+        <h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><p>tty 打印当前连接终端  (Print the file name of the terminal connected to standard input.)<br>who 登录的用户(Print information about users who are currently logged in.)<br>whoami  当前用户<br>who am i  详细<br>sudo -i 切换城root用户</p>
+<p>hostname -I 获取网络IP</p>
+<blockquote>
+<p> -I, –all-ip-addresses<br>              Display  all network addresses of the host. This option enumerates all configured addresses on all network interfaces. The loopback interface and IPv6 link-local<br>              addresses are omitted. Contrary to option -i, this option does not depend on name resolution. Do not make any assumptions about the order of the output.</p>
+</blockquote>
+<p>Ctrl+Alt+F1和Ctrl+Alt+F2 字符界面和图形界面切换<br>free -h 查看内存占用<br>runlevel 当前的模式 5代表图形 3代表字符界面<br>init 3 切换字符界面<br>init 5 切换图形界面<br>init 0 关机<br>init 6 重启</p>
+<p>cat &#x2F;etc&#x2F;motd 查看文本<br>nano 查看文本，可以编辑<br>&#x2F;etc&#x2F;motd 登录之后显示的文件<br>&#x2F;etc&#x2F;issue 登录之前显示的文件<br>echo 输出<br>ps aux查看进程<br>echo $SHELL 查看当前使用的shell<br>cat &#x2F;etc&#x2F;shells 查看当前系统支持的所有shell<br>hostname 查看主机名 在文件 &#x2F;etc&#x2F;hostname<br>hostname xxx 临时修改主机名 在内存中，重启失效<br>hostnamectl set-hostname XXX 内存和文件都改了，重启依然有效<br>echo  PS1 提示格式(PS1前面加美元符号) 可以改，没必要</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/08/13/hello-world/" data-id="cm1makry70001ocvb32ja7o5r" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/09/28/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%88%9D%E6%AC%A1%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-id="cm1mao96k0000q0vbdn4x32hn" data-title="Linux学习笔记--初次安装常用命令" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/Linux/" rel="tag">Linux</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="../OpenGL%E7%AE%80%E4%BB%8B/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          OpenGL简介
-        
-      </div>
-    </a>
   
+    <a href="../../../08/14/%E5%AD%A6%E4%B9%A0markdown/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
   
 </nav>
 
@@ -183,23 +176,23 @@
       <ul>
         
           <li>
-            <a href="../../../09/28/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%88%9D%E6%AC%A1%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Linux学习笔记--初次安装常用命令</a>
+            <a href="">Linux学习笔记--初次安装常用命令</a>
           </li>
         
           <li>
-            <a href="../../14/%E5%AD%A6%E4%B9%A0markdown/">(no title)</a>
+            <a href="../../../08/14/%E5%AD%A6%E4%B9%A0markdown/">(no title)</a>
           </li>
         
           <li>
-            <a href="../../14/%E6%96%B0%E7%9A%84%E4%B8%80%E5%A4%A9%E5%BC%80%E5%A7%8B%E4%BA%86/">新的一天开始了</a>
+            <a href="../../../08/14/%E6%96%B0%E7%9A%84%E4%B8%80%E5%A4%A9%E5%BC%80%E5%A7%8B%E4%BA%86/">新的一天开始了</a>
           </li>
         
           <li>
-            <a href="../hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">hexo常用命令</a>
+            <a href="../../../08/13/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">hexo常用命令</a>
           </li>
         
           <li>
-            <a href="../OpenGL%E7%AE%80%E4%BB%8B/">OpenGL简介</a>
+            <a href="../../../08/13/OpenGL%E7%AE%80%E4%BB%8B/">OpenGL简介</a>
           </li>
         
       </ul>

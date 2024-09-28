@@ -63,10 +63,10 @@
         
           <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
         
-        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
       </div>
     </div>
   </div>
@@ -74,6 +74,53 @@
 
       <div class="outer">
         <section id="main">
+  
+    <article id="post-Linux学习笔记-初次安装常用命令" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="2024/09/28/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%88%9D%E6%AC%A1%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="article-date">
+  <time class="dt-published" datetime="2024-09-28T13:16:22.000Z" itemprop="datePublished">2024-09-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="2024/09/28/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%88%9D%E6%AC%A1%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Linux学习笔记--初次安装常用命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><p>tty 打印当前连接终端  (Print the file name of the terminal connected to standard input.)<br>who 登录的用户(Print information about users who are currently logged in.)<br>whoami  当前用户<br>who am i  详细<br>sudo -i 切换城root用户</p>
+<p>hostname -I 获取网络IP</p>
+<blockquote>
+<p> -I, –all-ip-addresses<br>              Display  all network addresses of the host. This option enumerates all configured addresses on all network interfaces. The loopback interface and IPv6 link-local<br>              addresses are omitted. Contrary to option -i, this option does not depend on name resolution. Do not make any assumptions about the order of the output.</p>
+</blockquote>
+<p>Ctrl+Alt+F1和Ctrl+Alt+F2 字符界面和图形界面切换<br>free -h 查看内存占用<br>runlevel 当前的模式 5代表图形 3代表字符界面<br>init 3 切换字符界面<br>init 5 切换图形界面<br>init 0 关机<br>init 6 重启</p>
+<p>cat &#x2F;etc&#x2F;motd 查看文本<br>nano 查看文本，可以编辑<br>&#x2F;etc&#x2F;motd 登录之后显示的文件<br>&#x2F;etc&#x2F;issue 登录之前显示的文件<br>echo 输出<br>ps aux查看进程<br>echo $SHELL 查看当前使用的shell<br>cat &#x2F;etc&#x2F;shells 查看当前系统支持的所有shell<br>hostname 查看主机名 在文件 &#x2F;etc&#x2F;hostname<br>hostname xxx 临时修改主机名 在内存中，重启失效<br>hostnamectl set-hostname XXX 内存和文件都改了，重启依然有效<br>echo  PS1 提示格式(PS1前面加美元符号) 可以改，没必要</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/09/28/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%88%9D%E6%AC%A1%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-id="cm1mao96k0000q0vbdn4x32hn" data-title="Linux学习笔记--初次安装常用命令" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Linux/" rel="tag">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
   
     <article id="post-学习markdown" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
@@ -141,7 +188,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/08/14/%E5%AD%A6%E4%B9%A0markdown/" data-id="cm0arrgpo0002msvb862m376l" data-title="" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/08/14/%E5%AD%A6%E4%B9%A0markdown/" data-id="cm1makrxv0000ocvbbqmn4jua" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -179,7 +226,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/08/14/%E6%96%B0%E7%9A%84%E4%B8%80%E5%A4%A9%E5%BC%80%E5%A7%8B%E4%BA%86/" data-id="cm0arrgpo0003msvb9pl184kk" data-title="新的一天开始了" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/08/14/%E6%96%B0%E7%9A%84%E4%B8%80%E5%A4%A9%E5%BC%80%E5%A7%8B%E4%BA%86/" data-id="cm1makryd0004ocvb3xar8v31" data-title="新的一天开始了" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -222,7 +269,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/08/13/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-id="cm0arrgpi0000msvbbncxc5y7" data-title="hexo常用命令" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/08/13/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-id="cm1makryc0003ocvbhx1wehtk" data-title="hexo常用命令" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -276,7 +323,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/08/13/OpenGL%E7%AE%80%E4%BB%8B/" data-id="cm0arrgpp0004msvb9kcpdahb" data-title="OpenGL简介" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/08/13/OpenGL%E7%AE%80%E4%BB%8B/" data-id="cm1makrya0002ocvb48dm0opp" data-title="OpenGL简介" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -327,7 +374,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/08/13/hello-world/" data-id="cm0arrgpn0001msvbf3lve42g" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/08/13/hello-world/" data-id="cm1makry70001ocvb32ja7o5r" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -349,15 +396,10 @@
 
   
     
-
-  
-    
-  
-    
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2024/08/">August 2024</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="tags/Linux/" rel="tag">Linux</a></li></ul>
     </div>
   </div>
 
@@ -365,9 +407,32 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="tags/Linux/" style="font-size: 10px;">Linux</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2024/08/">August 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="2024/09/28/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%88%9D%E6%AC%A1%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Linux学习笔记--初次安装常用命令</a>
+          </li>
         
           <li>
             <a href="2024/08/14/%E5%AD%A6%E4%B9%A0markdown/">(no title)</a>
@@ -383,10 +448,6 @@
         
           <li>
             <a href="2024/08/13/OpenGL%E7%AE%80%E4%BB%8B/">OpenGL简介</a>
-          </li>
-        
-          <li>
-            <a href="2024/08/13/hello-world/">Hello World</a>
           </li>
         
       </ul>
