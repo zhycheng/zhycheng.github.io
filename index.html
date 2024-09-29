@@ -63,10 +63,10 @@
         
           <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
         
-        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
       </div>
     </div>
   </div>
@@ -74,6 +74,65 @@
 
       <div class="outer">
         <section id="main">
+  
+    <article id="post-Linxu执行命令过程和命令类型" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="2024/09/29/Linxu%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4%E8%BF%87%E7%A8%8B%E5%92%8C%E5%91%BD%E4%BB%A4%E7%B1%BB%E5%9E%8B/" class="article-date">
+  <time class="dt-published" datetime="2024-09-28T16:07:56.000Z" itemprop="datePublished">2024-09-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="2024/09/29/Linxu%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4%E8%BF%87%E7%A8%8B%E5%92%8C%E5%91%BD%E4%BB%A4%E7%B1%BB%E5%9E%8B/">02.Linxu执行命令过程和命令类型</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>type 查看命令类型，是buildin还是外部命令</p>
+<blockquote>
+<p>type -a 命令名  查看所有的</p>
+</blockquote>
+<p>hash 查看缓存了的命令<br>hash -r 清空缓存</p>
+<p>help和enbale 显示所有内部命令</p>
+<blockquote>
+<ul>
+<li><p>enable cmd 启用内部命令</p>
+</li>
+<li><p>enable -n cmd 禁用内部命令</p>
+</li>
+<li><p>enable -n 查看所有禁用的内部命令</p>
+<p>以上临时禁用重启失效</p>
+</li>
+</ul>
+</blockquote>
+<p>which 查看外部命令的路径<br>whereis 除了查看外部命令的路径，还能显示帮助文档路径</p>
+<p>.  配置文件  让系统重新读取配置文件<br>source 配置文件  让系统重新读取配置文件</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/09/29/Linxu%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4%E8%BF%87%E7%A8%8B%E5%92%8C%E5%91%BD%E4%BB%A4%E7%B1%BB%E5%9E%8B/" data-id="cm1mwf5x1000044vb9ovu9fcg" data-title="02.Linxu执行命令过程和命令类型" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Linux/" rel="tag">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
   
     <article id="post-Linux学习笔记-初次安装常用命令" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
@@ -97,10 +156,9 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><p>tty 打印当前连接终端  (Print the file name of the terminal connected to standard input.)<br>who 登录的用户(Print information about users who are currently logged in.)<br>whoami  当前用户<br>who am i  详细<br>sudo -i 切换城root用户</p>
-<p>hostname -I 获取网络IP</p>
+        <h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><p>tty 打印当前连接终端  (Print the file name of the terminal connected to standard input.)<br>who 登录的用户(Print information about users who are currently logged in.)<br>whoami  当前用户<br>who am i  详细<br>sudo -i 切换城root用户<br>hostname -I 获取网络IP</p>
 <blockquote>
-<p> -I, –all-ip-addresses<br>              Display  all network addresses of the host. This option enumerates all configured addresses on all network interfaces. The loopback interface and IPv6 link-local<br>              addresses are omitted. Contrary to option -i, this option does not depend on name resolution. Do not make any assumptions about the order of the output.</p>
+<p> -I, –all-ip-addresses<br>               Display  all network addresses of the host. This option enumerates all configured addresses on all network interfaces. The loopback interface and IPv6 link-local<br>              addresses are omitted. Contrary to option -i, this option does not depend on name resolution. Do not make any assumptions about the order of the output.</p>
 </blockquote>
 <p>Ctrl+Alt+F1和Ctrl+Alt+F2 字符界面和图形界面切换<br>free -h 查看内存占用<br>runlevel 当前的模式 5代表图形 3代表字符界面<br>init 3 切换字符界面<br>init 5 切换图形界面<br>init 0 关机<br>init 6 重启</p>
 <p>cat &#x2F;etc&#x2F;motd 查看文本<br>nano 查看文本，可以编辑<br>&#x2F;etc&#x2F;motd 登录之后显示的文件<br>&#x2F;etc&#x2F;issue 登录之前显示的文件<br>echo 输出<br>ps aux查看进程<br>echo $SHELL 查看当前使用的shell<br>cat &#x2F;etc&#x2F;shells 查看当前系统支持的所有shell<br>hostname 查看主机名 在文件 &#x2F;etc&#x2F;hostname<br>hostname xxx 临时修改主机名 在内存中，重启失效<br>hostnamectl set-hostname XXX 内存和文件都改了，重启依然有效<br>echo  PS1 提示格式(PS1前面加美元符号) 可以改，没必要</p>
@@ -108,55 +166,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/09/28/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%88%9D%E6%AC%A1%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-id="cm1mav9vw000070vbftokger0" data-title="Linux学习笔记--初次安装常用命令" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/09/28/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%88%9D%E6%AC%A1%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-id="cm1mav9vw000070vbftokger0" data-title="Linux学习笔记--初次安装常用命令" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Linux/" rel="tag">Linux</a></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-hexo常用命令" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="2024/08/13/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="article-date">
-  <time class="dt-published" datetime="2024-08-13T10:10:10.000Z" itemprop="datePublished">2024-08-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="2024/08/13/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">hexo常用命令</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>这些是常用的命令，希望对大家有所帮助。</p>
-<p>hexo clean &#x2F;&#x2F;清除缓存<br>hexo g &#x2F;&#x2F;生成新数据<br>hexo d &#x2F;&#x2F;部署<br>hexo s &#x2F;&#x2F;启动本地服务预览<br>npm install hexo -g &#x2F;&#x2F;安装Hexo<br>npm update hexo -g &#x2F;&#x2F;升级<br>hexo init #初始化博客<br>hexo server -p 5000 #更改端口</p>
-<p>一般来说 都是执行</p>
-<p>hexo clean &#x2F;&#x2F;清除缓存<br>hexo g &#x2F;&#x2F;生成新数据<br>hexo d &#x2F;&#x2F;部署</p>
-<p>就发布到github去了</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/08/13/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-id="cm1mav9w2000470vbf9wj4pv2" data-title="hexo常用命令" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
     </footer>
   </div>
   
@@ -199,15 +214,21 @@
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a>  </p>
+<p>hexo clean &#x2F;&#x2F;清除缓存<br>hexo g &#x2F;&#x2F;生成新数据<br>hexo d &#x2F;&#x2F;部署<br>hexo s &#x2F;&#x2F;启动本地服务预览<br>npm install hexo -g &#x2F;&#x2F;安装Hexo<br>npm update hexo -g &#x2F;&#x2F;升级<br>hexo init #初始化博客<br>hexo server -p 5000 #更改端口</p>
+<p>一般来说 都是执行</p>
+<p>hexo clean &#x2F;&#x2F;清除缓存<br>hexo g &#x2F;&#x2F;生成新数据<br>hexo d &#x2F;&#x2F;部署</p>
+<p>就发布到github去了</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/08/13/hello-world/" data-id="cm1mav9vy000170vb2j2c4pd1" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/08/13/hello-world/" data-id="cm1mav9vy000170vb2j2c4pd1" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Hexo/" rel="tag">Hexo</a></li></ul>
+
     </footer>
   </div>
   
@@ -229,7 +250,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="tags/Linux/" rel="tag">Linux</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/Linux/" rel="tag">Linux</a></li></ul>
     </div>
   </div>
 
@@ -239,14 +260,14 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="tags/Linux/" style="font-size: 10px;">Linux</a>
+      <a href="tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="tags/Linux/" style="font-size: 20px;">Linux</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2024/08/">August 2024</a></li></ul>
     </div>
@@ -256,16 +277,16 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
           <li>
-            <a href="2024/09/28/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%88%9D%E6%AC%A1%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Linux学习笔记--初次安装常用命令</a>
+            <a href="2024/09/29/Linxu%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4%E8%BF%87%E7%A8%8B%E5%92%8C%E5%91%BD%E4%BB%A4%E7%B1%BB%E5%9E%8B/">02.Linxu执行命令过程和命令类型</a>
           </li>
         
           <li>
-            <a href="2024/08/13/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">hexo常用命令</a>
+            <a href="2024/09/28/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%88%9D%E6%AC%A1%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Linux学习笔记--初次安装常用命令</a>
           </li>
         
           <li>
