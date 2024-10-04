@@ -6,15 +6,15 @@
   
   <title>01.Linux学习笔记--初次安装常用命令 | zhycheng‘s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="常用命令tty 打印当前连接终端  (Print the file name of the terminal connected to standard input.)who 登录的用户(Print information about users who are currently logged in.)whoami  当前用户who am i  详细sudo -i 切换城root用户hostna">
+  <meta name="description" content="常用命令tty 打印当前连接终端  (Print the file name of the terminal connected to standard input.)who 登录的用户(Print information about users who are currently logged in.)whoami  当前用户who am i  详细w 系统当前所有的登录会话及所做的操作sudo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="01.Linux学习笔记--初次安装常用命令">
 <meta property="og:url" content="http://example.com/2024/09/28/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%88%9D%E6%AC%A1%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="zhycheng‘s blog">
-<meta property="og:description" content="常用命令tty 打印当前连接终端  (Print the file name of the terminal connected to standard input.)who 登录的用户(Print information about users who are currently logged in.)whoami  当前用户who am i  详细sudo -i 切换城root用户hostna">
+<meta property="og:description" content="常用命令tty 打印当前连接终端  (Print the file name of the terminal connected to standard input.)who 登录的用户(Print information about users who are currently logged in.)whoami  当前用户who am i  详细w 系统当前所有的登录会话及所做的操作sudo">
 <meta property="og:locale">
 <meta property="article:published_time" content="2024-09-28T13:16:22.000Z">
-<meta property="article:modified_time" content="2024-09-29T04:39:01.514Z">
+<meta property="article:modified_time" content="2024-10-02T13:33:33.094Z">
 <meta property="article:author" content="zhycheng">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
@@ -98,17 +98,28 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><p>tty 打印当前连接终端  (Print the file name of the terminal connected to standard input.)<br>who 登录的用户(Print information about users who are currently logged in.)<br>whoami  当前用户<br>who am i  详细<br>sudo -i 切换城root用户<br>hostname -I 获取网络IP</p>
+        <h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><p>tty 打印当前连接终端  (Print the file name of the terminal connected to standard input.)<br>who 登录的用户(Print information about users who are currently logged in.)<br>whoami  当前用户<br>who am i  详细<br>w 系统当前所有的登录会话及所做的操作<br>sudo -i 切换城root用户<br>hostname -I 获取网络IP</p>
 <blockquote>
 <p> -I, –all-ip-addresses<br>               Display  all network addresses of the host. This option enumerates all configured addresses on all network interfaces. The loopback interface and IPv6 link-local<br>              addresses are omitted. Contrary to option -i, this option does not depend on name resolution. Do not make any assumptions about the order of the output.</p>
 </blockquote>
 <p>Ctrl+Alt+F1和Ctrl+Alt+F2 字符界面和图形界面切换<br>free -h 查看内存占用<br>runlevel 当前的模式 5代表图形 3代表字符界面<br>init 3 切换字符界面<br>init 5 切换图形界面<br>init 0 关机<br>init 6 重启</p>
-<p>cat &#x2F;etc&#x2F;motd 查看文本<br>nano 查看文本，可以编辑<br>&#x2F;etc&#x2F;motd 登录之后显示的文件<br>&#x2F;etc&#x2F;issue 登录之前显示的文件<br>echo 输出<br>ps aux查看进程<br>echo $SHELL 查看当前使用的shell<br>cat &#x2F;etc&#x2F;shells 查看当前系统支持的所有shell<br>hostname 查看主机名 在文件 &#x2F;etc&#x2F;hostname<br>hostname xxx 临时修改主机名 在内存中，重启失效<br>hostnamectl set-hostname XXX 内存和文件都改了，重启依然有效<br>echo  PS1 提示格式(PS1前面加美元符号) 可以改，没必要</p>
+<p>cat &#x2F;etc&#x2F;motd 查看文本<br>nano 查看文本，可以编辑<br>&#x2F;etc&#x2F;motd 登录之后显示的文件<br>&#x2F;etc&#x2F;issue 登录之前显示的文件<br>echo 输出</p>
+<p>echo -e “\a”  解释字符</p>
+<p>ps aux查看进程<br>echo $SHELL 查看当前使用的shell<br>cat &#x2F;etc&#x2F;shells 查看当前系统支持的所有shell<br>hostname 查看主机名 在文件 &#x2F;etc&#x2F;hostname<br>hostname xxx 临时修改主机名 在内存中，重启失效<br>hostnamectl set-hostname XXX 内存和文件都改了，重启依然有效<br>echo  PS1 提示格式(PS1前面加美元符号) 可以改，没必要</p>
+<h4 id="查看cpu"><a href="#查看cpu" class="headerlink" title="查看cpu"></a>查看cpu</h4><p>lscpu或者cat &#x2F;proc&#x2F;cpuinfo</p>
+<h4 id="查看内存"><a href="#查看内存" class="headerlink" title="查看内存"></a>查看内存</h4><p>free或者cat &#x2F;proc&#x2F;meminfo</p>
+<h4 id="硬盘"><a href="#硬盘" class="headerlink" title="硬盘"></a>硬盘</h4><p>lsblk 或者 cat &#x2F;proc&#x2F;partitions</p>
+<h4 id="系统"><a href="#系统" class="headerlink" title="系统"></a>系统</h4><p>uname -r   内核<br>cat &#x2F;etc&#x2F;redhat-release   &#x2F;&#x2F;redhat系<br>cat &#x2F;etc&#x2F;os-release         &#x2F;&#x2F;all</p>
+<h4 id="时间"><a href="#时间" class="headerlink" title="时间"></a>时间</h4><p>date 查看和修改时间  保存在内存里面<br>clock 硬件时间<br>clock -s 以硬件时间为准，校正系统时间<br>clock -w以系统时间为准，校正硬件时间<br>cat &#x2F;etc&#x2F;localtime 查看时区<br>timedatectl set-timezone Asia&#x2F;Shanghai 设置为上海时区<br>cal  -y 查看日历 今年<br>cal 2020<br>cal 10 2025</p>
+<h4 id="会话管理"><a href="#会话管理" class="headerlink" title="会话管理"></a>会话管理</h4><p>screen</p>
+<p>tmux</p>
+<p>都可以实现远程协助</p>
+<p>hexdump -C test.txt 查看16进制</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/09/28/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%88%9D%E6%AC%A1%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-id="cm1mav9vw000070vbftokger0" data-title="01.Linux学习笔记--初次安装常用命令" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/09/28/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%88%9D%E6%AC%A1%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-id="cm1uw2s3k0000xgvbf8tzg5oy" data-title="01.Linux学习笔记--初次安装常用命令" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -152,7 +163,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Linux/" rel="tag">Linux</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/MySQL/" rel="tag">MySQL</a></li></ul>
     </div>
   </div>
 
@@ -162,7 +173,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="../../../../tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="../../../../tags/Linux/" style="font-size: 20px;">Linux</a>
+      <a href="../../../../tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="../../../../tags/Linux/" style="font-size: 20px;">Linux</a> <a href="../../../../tags/MySQL/" style="font-size: 10px;">MySQL</a>
     </div>
   </div>
 
@@ -171,7 +182,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2024/08/">August 2024</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2024/08/">August 2024</a></li></ul>
     </div>
   </div>
 
@@ -184,15 +195,23 @@
       <ul>
         
           <li>
-            <a href="../../29/Linxu%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4%E8%BF%87%E7%A8%8B%E5%92%8C%E5%91%BD%E4%BB%A4%E7%B1%BB%E5%9E%8B/">02.Linxu执行命令过程和命令类型</a>
+            <a href="../../../10/04/MySQL%E5%9F%BA%E7%A1%80%E5%86%85%E5%AE%B9/">01MySQL基础内容</a>
           </li>
         
           <li>
-            <a href="">01.Linux学习笔记--初次安装常用命令</a>
+            <a href="../../../10/03/%E5%91%BD%E4%BB%A4%E7%9A%84%E5%B8%AE%E5%8A%A9%E7%94%A8%E6%B3%95/">05命令的帮助用法</a>
           </li>
         
           <li>
-            <a href="../../../08/13/hello-world/">Hello World</a>
+            <a href="../../../10/03/%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">04快捷键使用技巧</a>
+          </li>
+        
+          <li>
+            <a href="../../../10/02/%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7%E7%94%A8%E6%B3%95%E5%92%8C%E5%8C%BA%E5%88%AB/">04特殊符号用法和区别</a>
+          </li>
+        
+          <li>
+            <a href="../../../10/02/%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F%E8%AF%A6%E8%A7%A3/">03.命令格式详解</a>
           </li>
         
       </ul>

@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>02.Linxu执行命令过程和命令类型 | zhycheng‘s blog</title>
+  <title>04快捷键使用技巧 | zhycheng‘s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="type 查看命令类型，是buildin还是外部命令  type -a 命令名  查看所有的  hash 查看缓存了的命令hash -r 清空缓存 help和enbale 显示所有内部命令   enable cmd 启用内部命令  enable -n cmd 禁用内部命令  enable -n 查看所有禁用的内部命令 以上临时禁用重启失效    which 查看外部命令的路径whereis 除了查">
+  <meta name="description" content="Tab 可以补全命令或者参数，双击Tab显示所有的可能选项 命令行历史命令执行后，系统默认会在内存记录执行过的命令当用户正常退出时，会把内存的命令历史存放在文件中，默认是~&#x2F;。bash_historyhistory 列出执行过的命令历史history -c 清除内存中的history 在.bash_profile 中添加export HISTTIMEFORMAT &#x3D;”%F %T">
 <meta property="og:type" content="article">
-<meta property="og:title" content="02.Linxu执行命令过程和命令类型">
-<meta property="og:url" content="http://example.com/2024/09/29/Linxu%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4%E8%BF%87%E7%A8%8B%E5%92%8C%E5%91%BD%E4%BB%A4%E7%B1%BB%E5%9E%8B/index.html">
+<meta property="og:title" content="04快捷键使用技巧">
+<meta property="og:url" content="http://example.com/2024/10/03/%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/index.html">
 <meta property="og:site_name" content="zhycheng‘s blog">
-<meta property="og:description" content="type 查看命令类型，是buildin还是外部命令  type -a 命令名  查看所有的  hash 查看缓存了的命令hash -r 清空缓存 help和enbale 显示所有内部命令   enable cmd 启用内部命令  enable -n cmd 禁用内部命令  enable -n 查看所有禁用的内部命令 以上临时禁用重启失效    which 查看外部命令的路径whereis 除了查">
+<meta property="og:description" content="Tab 可以补全命令或者参数，双击Tab显示所有的可能选项 命令行历史命令执行后，系统默认会在内存记录执行过的命令当用户正常退出时，会把内存的命令历史存放在文件中，默认是~&#x2F;。bash_historyhistory 列出执行过的命令历史history -c 清除内存中的history 在.bash_profile 中添加export HISTTIMEFORMAT &#x3D;”%F %T">
 <meta property="og:locale">
-<meta property="article:published_time" content="2024-09-28T16:07:56.000Z">
-<meta property="article:modified_time" content="2024-09-30T08:51:58.798Z">
+<meta property="article:published_time" content="2024-10-03T03:55:16.000Z">
+<meta property="article:modified_time" content="2024-10-03T05:29:31.464Z">
 <meta property="article:author" content="zhycheng">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
@@ -76,10 +76,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-Linxu执行命令过程和命令类型" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-快捷键使用技巧" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="" class="article-date">
-  <time class="dt-published" datetime="2024-09-28T16:07:56.000Z" itemprop="datePublished">2024-09-29</time>
+  <time class="dt-published" datetime="2024-10-03T03:55:16.000Z" itemprop="datePublished">2024-10-03</time>
 </a>
     
   </div>
@@ -90,7 +90,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      02.Linxu执行命令过程和命令类型
+      04快捷键使用技巧
     </h1>
   
 
@@ -98,34 +98,15 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>type 查看命令类型，是buildin还是外部命令</p>
-<blockquote>
-<p>type -a 命令名  查看所有的</p>
-</blockquote>
-<p>hash 查看缓存了的命令<br>hash -r 清空缓存</p>
-<p>help和enbale 显示所有内部命令</p>
-<blockquote>
-<ul>
-<li><p>enable cmd 启用内部命令</p>
-</li>
-<li><p>enable -n cmd 禁用内部命令</p>
-</li>
-<li><p>enable -n 查看所有禁用的内部命令</p>
-<p>以上临时禁用重启失效</p>
-</li>
-</ul>
-</blockquote>
-<p>which 查看外部命令的路径<br>whereis 除了查看外部命令的路径，还能显示帮助文档路径</p>
-<p>.  配置文件  让系统重新读取配置文件<br>source 配置文件  让系统重新读取配置文件</p>
-<p>alias cdnew&#x3D;”cd &#x2F;etc&#x2F;sysconfig”  设置别名 临时设置<br>unalias cdnew 取消别名<br>unalias -a取消所有别名<br>alias 显示所有别名<br>不适用别名，执行原始命令   </p>
-<p>\命令<br>“命令”<br>‘命令’</p>
-<p>别名放入文件<br>~&#x2F;.bashrc  	对自己有效才能持久保存<br>&#x2F;etc&#x2F;.bashrc	对所有用户生效</p>
-<p>lsblk 显示硬盘和分区</p>
+        <p>Tab 可以补全命令或者参数，双击Tab显示所有的可能选项</p>
+<h4 id="命令行历史"><a href="#命令行历史" class="headerlink" title="命令行历史"></a>命令行历史</h4><p>命令执行后，系统默认会在内存记录执行过的命令<br>当用户正常退出时，会把内存的命令历史存放在文件中，默认是~&#x2F;。bash_history<br>history 列出执行过的命令历史<br>history -c 清除内存中的history</p>
+<p>在.bash_profile 中添加<br>export HISTTIMEFORMAT &#x3D;”%F %T `whoami` “<br>可以在历史中加上日期时间和用户</p>
+<p>CTRL+L  清屏幕 等于 clear<br>ALT+R 清除一整行</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/09/29/Linxu%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4%E8%BF%87%E7%A8%8B%E5%92%8C%E5%91%BD%E4%BB%A4%E7%B1%BB%E5%9E%8B/" data-id="cm1uw2s3p0001xgvb0sr33kj3" data-title="02.Linxu执行命令过程和命令类型" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/03/%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" data-id="cm1uw2s3w000axgvbdz4d4j8x" data-title="04快捷键使用技巧" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -137,19 +118,19 @@
     
 <nav id="article-nav">
   
-    <a href="../../../10/02/%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F%E8%AF%A6%E8%A7%A3/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="../%E5%91%BD%E4%BB%A4%E7%9A%84%E5%B8%AE%E5%8A%A9%E7%94%A8%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Neuer</strong>
       <div class="article-nav-title">
         
-          03.命令格式详解
+          05命令的帮助用法
         
       </div>
     </a>
   
   
-    <a href="../../28/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%88%9D%E6%AC%A1%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../../02/%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7%E7%94%A8%E6%B3%95%E5%92%8C%E5%8C%BA%E5%88%AB/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">01.Linux学习笔记--初次安装常用命令</div>
+      <div class="article-nav-title">04特殊符号用法和区别</div>
     </a>
   
 </nav>
@@ -201,23 +182,23 @@
       <ul>
         
           <li>
-            <a href="../../../10/04/MySQL%E5%9F%BA%E7%A1%80%E5%86%85%E5%AE%B9/">01MySQL基础内容</a>
+            <a href="../../04/MySQL%E5%9F%BA%E7%A1%80%E5%86%85%E5%AE%B9/">01MySQL基础内容</a>
           </li>
         
           <li>
-            <a href="../../../10/03/%E5%91%BD%E4%BB%A4%E7%9A%84%E5%B8%AE%E5%8A%A9%E7%94%A8%E6%B3%95/">05命令的帮助用法</a>
+            <a href="../%E5%91%BD%E4%BB%A4%E7%9A%84%E5%B8%AE%E5%8A%A9%E7%94%A8%E6%B3%95/">05命令的帮助用法</a>
           </li>
         
           <li>
-            <a href="../../../10/03/%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">04快捷键使用技巧</a>
+            <a href="">04快捷键使用技巧</a>
           </li>
         
           <li>
-            <a href="../../../10/02/%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7%E7%94%A8%E6%B3%95%E5%92%8C%E5%8C%BA%E5%88%AB/">04特殊符号用法和区别</a>
+            <a href="../../02/%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7%E7%94%A8%E6%B3%95%E5%92%8C%E5%8C%BA%E5%88%AB/">04特殊符号用法和区别</a>
           </li>
         
           <li>
-            <a href="../../../10/02/%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F%E8%AF%A6%E8%A7%A3/">03.命令格式详解</a>
+            <a href="../../02/%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F%E8%AF%A6%E8%A7%A3/">03.命令格式详解</a>
           </li>
         
       </ul>

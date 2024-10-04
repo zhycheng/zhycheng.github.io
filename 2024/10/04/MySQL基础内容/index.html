@@ -4,19 +4,19 @@
   <meta charset="utf-8">
   
   
-  <title>02.Linxu执行命令过程和命令类型 | zhycheng‘s blog</title>
+  <title>01MySQL基础内容 | zhycheng‘s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="type 查看命令类型，是buildin还是外部命令  type -a 命令名  查看所有的  hash 查看缓存了的命令hash -r 清空缓存 help和enbale 显示所有内部命令   enable cmd 启用内部命令  enable -n cmd 禁用内部命令  enable -n 查看所有禁用的内部命令 以上临时禁用重启失效    which 查看外部命令的路径whereis 除了查">
+  <meta name="description" content="登录详细规则mysql -u root -pabc123 -hlocalhost -P3306 登录之后的操作alter user ‘root‘@’localhost’ identified by ‘newpassword’;  修改root密码show databases;  查看数据库create database dbtest1;  创建数据库use dbtest1;  选择使用某个数据库c">
 <meta property="og:type" content="article">
-<meta property="og:title" content="02.Linxu执行命令过程和命令类型">
-<meta property="og:url" content="http://example.com/2024/09/29/Linxu%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4%E8%BF%87%E7%A8%8B%E5%92%8C%E5%91%BD%E4%BB%A4%E7%B1%BB%E5%9E%8B/index.html">
+<meta property="og:title" content="01MySQL基础内容">
+<meta property="og:url" content="http://example.com/2024/10/04/MySQL%E5%9F%BA%E7%A1%80%E5%86%85%E5%AE%B9/index.html">
 <meta property="og:site_name" content="zhycheng‘s blog">
-<meta property="og:description" content="type 查看命令类型，是buildin还是外部命令  type -a 命令名  查看所有的  hash 查看缓存了的命令hash -r 清空缓存 help和enbale 显示所有内部命令   enable cmd 启用内部命令  enable -n cmd 禁用内部命令  enable -n 查看所有禁用的内部命令 以上临时禁用重启失效    which 查看外部命令的路径whereis 除了查">
+<meta property="og:description" content="登录详细规则mysql -u root -pabc123 -hlocalhost -P3306 登录之后的操作alter user ‘root‘@’localhost’ identified by ‘newpassword’;  修改root密码show databases;  查看数据库create database dbtest1;  创建数据库use dbtest1;  选择使用某个数据库c">
 <meta property="og:locale">
-<meta property="article:published_time" content="2024-09-28T16:07:56.000Z">
-<meta property="article:modified_time" content="2024-09-30T08:51:58.798Z">
+<meta property="article:published_time" content="2024-10-04T13:01:40.000Z">
+<meta property="article:modified_time" content="2024-10-04T15:37:17.387Z">
 <meta property="article:author" content="zhycheng">
-<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="../../../../atom.xml" title="zhycheng‘s blog" type="application/atom+xml">
@@ -76,10 +76,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-Linxu执行命令过程和命令类型" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-MySQL基础内容" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="" class="article-date">
-  <time class="dt-published" datetime="2024-09-28T16:07:56.000Z" itemprop="datePublished">2024-09-29</time>
+  <time class="dt-published" datetime="2024-10-04T13:01:40.000Z" itemprop="datePublished">2024-10-04</time>
 </a>
     
   </div>
@@ -90,7 +90,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      02.Linxu执行命令过程和命令类型
+      01MySQL基础内容
     </h1>
   
 
@@ -98,38 +98,32 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>type 查看命令类型，是buildin还是外部命令</p>
+        <p>登录详细规则<br>mysql -u root -pabc123 -hlocalhost -P3306</p>
+<p>登录之后的操作<br>alter user ‘root‘@’localhost’ identified by ‘newpassword’;  修改root密码<br>show databases;  查看数据库<br>create database dbtest1;  创建数据库<br>use dbtest1;  选择使用某个数据库<br>create table employees(id int,name varchar(15));  &#x2F;&#x2F;创建数据库<br>show create table employees;  &#x2F;&#x2F;显示建表语句<br>show create database dbtest1;&#x2F;&#x2F;显示建数据库语句<br>show variables like ‘character_%’;<br>drop database dbtest1;删掉数据库</p>
+<h4 id="SQL分类"><a href="#SQL分类" class="headerlink" title="SQL分类"></a>SQL分类</h4><p>DDL（Data Definition Languages 、数据定义语言）这些语句定义了不同的数据库、表、视图、索引等数据库对象，还可以用来创建，删除，修改数据库和数据表的结构。</p>
 <blockquote>
-<p>type -a 命令名  查看所有的</p>
+<p>主要的语句关键字包括CREATE、DROP、ALTER等。</p>
 </blockquote>
-<p>hash 查看缓存了的命令<br>hash -r 清空缓存</p>
-<p>help和enbale 显示所有内部命令</p>
+<p>DML（Data Manipulation Language、数据操作语言）用于添加、删除、更新和查询数据库记录，并检查数据完整性。</p>
 <blockquote>
 <ul>
-<li><p>enable cmd 启用内部命令</p>
-</li>
-<li><p>enable -n cmd 禁用内部命令</p>
-</li>
-<li><p>enable -n 查看所有禁用的内部命令</p>
-<p>以上临时禁用重启失效</p>
-</li>
+<li>主要的语句关键字包括 INSERT、DELETE、UPDATE、SELECT等。</li>
+<li>SELECT是SQL语言的基础，最为重要</li>
 </ul>
 </blockquote>
-<p>which 查看外部命令的路径<br>whereis 除了查看外部命令的路径，还能显示帮助文档路径</p>
-<p>.  配置文件  让系统重新读取配置文件<br>source 配置文件  让系统重新读取配置文件</p>
-<p>alias cdnew&#x3D;”cd &#x2F;etc&#x2F;sysconfig”  设置别名 临时设置<br>unalias cdnew 取消别名<br>unalias -a取消所有别名<br>alias 显示所有别名<br>不适用别名，执行原始命令   </p>
-<p>\命令<br>“命令”<br>‘命令’</p>
-<p>别名放入文件<br>~&#x2F;.bashrc  	对自己有效才能持久保存<br>&#x2F;etc&#x2F;.bashrc	对所有用户生效</p>
-<p>lsblk 显示硬盘和分区</p>
+<p>DCL（Data Control Language、数据控制语言）用于定义数据库、表、字段、用户的访问权限的安全级别。</p>
+<blockquote>
+<p>主要的语句关键字包括GRANT、REVOKE、COMMIT、ROLLBACK、SAVEPOINT等。</p>
+</blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/09/29/Linxu%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4%E8%BF%87%E7%A8%8B%E5%92%8C%E5%91%BD%E4%BB%A4%E7%B1%BB%E5%9E%8B/" data-id="cm1uw2s3p0001xgvb0sr33kj3" data-title="02.Linxu执行命令过程和命令类型" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/04/MySQL%E5%9F%BA%E7%A1%80%E5%86%85%E5%AE%B9/" data-id="cm1uw2s3s0003xgvbegl6hm0n" data-title="01MySQL基础内容" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/Linux/" rel="tag">Linux</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/MySQL/" rel="tag">MySQL</a></li></ul>
 
     </footer>
   </div>
@@ -137,19 +131,10 @@
     
 <nav id="article-nav">
   
-    <a href="../../../10/02/%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F%E8%AF%A6%E8%A7%A3/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
-      <div class="article-nav-title">
-        
-          03.命令格式详解
-        
-      </div>
-    </a>
   
-  
-    <a href="../../28/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%88%9D%E6%AC%A1%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../../03/%E5%91%BD%E4%BB%A4%E7%9A%84%E5%B8%AE%E5%8A%A9%E7%94%A8%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">01.Linux学习笔记--初次安装常用命令</div>
+      <div class="article-nav-title">05命令的帮助用法</div>
     </a>
   
 </nav>
@@ -201,23 +186,23 @@
       <ul>
         
           <li>
-            <a href="../../../10/04/MySQL%E5%9F%BA%E7%A1%80%E5%86%85%E5%AE%B9/">01MySQL基础内容</a>
+            <a href="">01MySQL基础内容</a>
           </li>
         
           <li>
-            <a href="../../../10/03/%E5%91%BD%E4%BB%A4%E7%9A%84%E5%B8%AE%E5%8A%A9%E7%94%A8%E6%B3%95/">05命令的帮助用法</a>
+            <a href="../../03/%E5%91%BD%E4%BB%A4%E7%9A%84%E5%B8%AE%E5%8A%A9%E7%94%A8%E6%B3%95/">05命令的帮助用法</a>
           </li>
         
           <li>
-            <a href="../../../10/03/%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">04快捷键使用技巧</a>
+            <a href="../../03/%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">04快捷键使用技巧</a>
           </li>
         
           <li>
-            <a href="../../../10/02/%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7%E7%94%A8%E6%B3%95%E5%92%8C%E5%8C%BA%E5%88%AB/">04特殊符号用法和区别</a>
+            <a href="../../02/%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7%E7%94%A8%E6%B3%95%E5%92%8C%E5%8C%BA%E5%88%AB/">04特殊符号用法和区别</a>
           </li>
         
           <li>
-            <a href="../../../10/02/%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F%E8%AF%A6%E8%A7%A3/">03.命令格式详解</a>
+            <a href="../../02/%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F%E8%AF%A6%E8%A7%A3/">03.命令格式详解</a>
           </li>
         
       </ul>
