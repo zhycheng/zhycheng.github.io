@@ -4,19 +4,19 @@
   <meta charset="utf-8">
   
   
-  <title>02.Linxu执行命令过程和命令类型 | zhycheng‘s blog</title>
+  <title>02基本的SELECT查询 | zhycheng‘s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="type 查看命令类型，是buildin还是外部命令  type -a 命令名  查看所有的  hash 查看缓存了的命令hash -r 清空缓存 help和enbale 显示所有内部命令   enable cmd 启用内部命令  enable -n cmd 禁用内部命令  enable -n 查看所有禁用的内部命令 以上临时禁用重启失效    which 查看外部命令的路径whereis 除了查">
+  <meta name="description" content="基本的查询SELECT 1 SELECT …FROM… SELECT employee_id,first_name,last_name FROM employees; 别名紧跟列名，也可以在列名和别名之间加入关键字AS，别名使用双引号，以便在别名中包含空格或特殊的字符并区分大小写。AS可以省略。也可以不加双引号。 SELECT employee_id  ID,first_name AS 姓,las">
 <meta property="og:type" content="article">
-<meta property="og:title" content="02.Linxu执行命令过程和命令类型">
-<meta property="og:url" content="http://example.com/2024/09/29/Linxu%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4%E8%BF%87%E7%A8%8B%E5%92%8C%E5%91%BD%E4%BB%A4%E7%B1%BB%E5%9E%8B/index.html">
+<meta property="og:title" content="02基本的SELECT查询">
+<meta property="og:url" content="http://example.com/2024/10/05/%E5%9F%BA%E6%9C%AC%E7%9A%84SELECT%E6%9F%A5%E8%AF%A2/index.html">
 <meta property="og:site_name" content="zhycheng‘s blog">
-<meta property="og:description" content="type 查看命令类型，是buildin还是外部命令  type -a 命令名  查看所有的  hash 查看缓存了的命令hash -r 清空缓存 help和enbale 显示所有内部命令   enable cmd 启用内部命令  enable -n cmd 禁用内部命令  enable -n 查看所有禁用的内部命令 以上临时禁用重启失效    which 查看外部命令的路径whereis 除了查">
+<meta property="og:description" content="基本的查询SELECT 1 SELECT …FROM… SELECT employee_id,first_name,last_name FROM employees; 别名紧跟列名，也可以在列名和别名之间加入关键字AS，别名使用双引号，以便在别名中包含空格或特殊的字符并区分大小写。AS可以省略。也可以不加双引号。 SELECT employee_id  ID,first_name AS 姓,las">
 <meta property="og:locale">
-<meta property="article:published_time" content="2024-09-28T16:07:56.000Z">
-<meta property="article:modified_time" content="2024-09-30T08:51:58.798Z">
+<meta property="article:published_time" content="2024-10-05T03:46:06.000Z">
+<meta property="article:modified_time" content="2024-10-05T14:33:40.313Z">
 <meta property="article:author" content="zhycheng">
-<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="../../../../atom.xml" title="zhycheng‘s blog" type="application/atom+xml">
@@ -76,10 +76,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-Linxu执行命令过程和命令类型" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-基本的SELECT查询" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="" class="article-date">
-  <time class="dt-published" datetime="2024-09-28T16:07:56.000Z" itemprop="datePublished">2024-09-29</time>
+  <time class="dt-published" datetime="2024-10-05T03:46:06.000Z" itemprop="datePublished">2024-10-05</time>
 </a>
     
   </div>
@@ -90,7 +90,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      02.Linxu执行命令过程和命令类型
+      02基本的SELECT查询
     </h1>
   
 
@@ -98,38 +98,38 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>type 查看命令类型，是buildin还是外部命令</p>
+        <h4 id="基本的查询"><a href="#基本的查询" class="headerlink" title="基本的查询"></a>基本的查询</h4><p>SELECT 1</p>
+<p>SELECT …FROM…</p>
+<p>SELECT employee_id,first_name,last_name FROM employees;</p>
+<h4 id="别名"><a href="#别名" class="headerlink" title="别名"></a>别名</h4><p>紧跟列名，也可以<strong>在列名和别名之间加入关键字AS，别名使用双引号</strong>，以便在别名中包含空格或特殊的字符并区分大小写。AS可以省略。也可以不加双引号。</p>
+<p>SELECT employee_id  ID,first_name AS 姓,last_name 名字, salary*12 as “Anual Salary” FROM employees;</p>
+<h4 id="去除重复行"><a href="#去除重复行" class="headerlink" title="去除重复行"></a>去除重复行</h4><p>SELECT DISTINCT department_id FROM employees;</p>
+<p><strong>空值参与运算</strong></p>
+<p>所有运算符或列值遇到null值，运算的结果都为null</p>
+<p>SELECT employee_id,salary,commission_pct, salary*(1+commission_pct)*12 as “年工资” FROM employees;</p>
+<p>SELECT employee_id,salary,commission_pct, salary*(1+IFNULL(commission_pct,0))*12 as “年工资” FROM employees;</p>
+<p>IFNULL如果为空就为后面的值，不为空那就是原来的值</p>
+<p><strong>着重号</strong></p>
+<p>我们需要保证表中的字段、表名等没有和保留字、数据库系统或常用方法冲突。如果真的相同，请在SQL语句中使用一对&#96;&#96;（着重号）引起来。</p>
+<p><strong>查询常数</strong></p>
+<p>SELECT 查询还可以对常数进行查询。对的，就是在 SELECT 查询结果中增加一列固定的常数列。这列的</p>
+<p>取值是我们指定的，而不是从数据表中动态取出的。<br>SELECT ‘湖北省’,42,employee_id,first_name,last_name from employees;</p>
+<p><strong>显示表结构</strong></p>
+<p>使用DESCRIBE 或 DESC 命令，表示表结构。</p>
+<p><strong>过滤数据</strong></p>
+<p>SELECT * FROM employees where department_id&#x3D;90;<br>SELECT * FROM employees WHERE last_name&#x3D;’King’;</p>
 <blockquote>
-<p>type -a 命令名  查看所有的</p>
+<p>MySQL大小写不敏感，King用小写king也能查出来</p>
 </blockquote>
-<p>hash 查看缓存了的命令<br>hash -r 清空缓存</p>
-<p>help和enbale 显示所有内部命令</p>
-<blockquote>
-<ul>
-<li><p>enable cmd 启用内部命令</p>
-</li>
-<li><p>enable -n cmd 禁用内部命令</p>
-</li>
-<li><p>enable -n 查看所有禁用的内部命令</p>
-<p>以上临时禁用重启失效</p>
-</li>
-</ul>
-</blockquote>
-<p>which 查看外部命令的路径<br>whereis 除了查看外部命令的路径，还能显示帮助文档路径</p>
-<p>.  配置文件  让系统重新读取配置文件<br>source 配置文件  让系统重新读取配置文件</p>
-<p>alias cdnew&#x3D;”cd &#x2F;etc&#x2F;sysconfig”  设置别名 临时设置<br>unalias cdnew 取消别名<br>unalias -a取消所有别名<br>alias 显示所有别名<br>不适用别名，执行原始命令   </p>
-<p>\命令<br>“命令”<br>‘命令’</p>
-<p>别名放入文件<br>~&#x2F;.bashrc  	对自己有效才能持久保存<br>&#x2F;etc&#x2F;.bashrc	对所有用户生效</p>
-<p>lsblk 显示硬盘和分区</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/09/29/Linxu%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4%E8%BF%87%E7%A8%8B%E5%92%8C%E5%91%BD%E4%BB%A4%E7%B1%BB%E5%9E%8B/" data-id="cm1xo3en60004owvbelw19z02" data-title="02.Linxu执行命令过程和命令类型" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/05/%E5%9F%BA%E6%9C%AC%E7%9A%84SELECT%E6%9F%A5%E8%AF%A2/" data-id="cm1xo3ena0008owvb39a37tzh" data-title="02基本的SELECT查询" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/Linux/" rel="tag">Linux</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/MySQL/" rel="tag">MySQL</a></li></ul>
 
     </footer>
   </div>
@@ -137,19 +137,19 @@
     
 <nav id="article-nav">
   
-    <a href="../../../10/02/%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F%E8%AF%A6%E8%A7%A3/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="../%E8%BF%90%E7%AE%97%E7%AC%A6/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Neuer</strong>
       <div class="article-nav-title">
         
-          03.命令格式详解
+          03运算符
         
       </div>
     </a>
   
   
-    <a href="../../28/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%88%9D%E6%AC%A1%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../../04/MySQL%E5%9F%BA%E7%A1%80%E5%86%85%E5%AE%B9/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">01.Linux学习笔记--初次安装常用命令</div>
+      <div class="article-nav-title">01MySQL基础内容</div>
     </a>
   
 </nav>
@@ -201,23 +201,23 @@
       <ul>
         
           <li>
-            <a href="../../../10/05/%E8%BF%90%E7%AE%97%E7%AC%A6/">03运算符</a>
+            <a href="../%E8%BF%90%E7%AE%97%E7%AC%A6/">03运算符</a>
           </li>
         
           <li>
-            <a href="../../../10/05/%E5%9F%BA%E6%9C%AC%E7%9A%84SELECT%E6%9F%A5%E8%AF%A2/">02基本的SELECT查询</a>
+            <a href="">02基本的SELECT查询</a>
           </li>
         
           <li>
-            <a href="../../../10/04/MySQL%E5%9F%BA%E7%A1%80%E5%86%85%E5%AE%B9/">01MySQL基础内容</a>
+            <a href="../../04/MySQL%E5%9F%BA%E7%A1%80%E5%86%85%E5%AE%B9/">01MySQL基础内容</a>
           </li>
         
           <li>
-            <a href="../../../10/03/%E5%91%BD%E4%BB%A4%E7%9A%84%E5%B8%AE%E5%8A%A9%E7%94%A8%E6%B3%95/">05命令的帮助用法</a>
+            <a href="../../03/%E5%91%BD%E4%BB%A4%E7%9A%84%E5%B8%AE%E5%8A%A9%E7%94%A8%E6%B3%95/">05命令的帮助用法</a>
           </li>
         
           <li>
-            <a href="../../../10/03/%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">04快捷键使用技巧</a>
+            <a href="../../03/%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">04快捷键使用技巧</a>
           </li>
         
       </ul>

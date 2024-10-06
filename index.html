@@ -75,6 +75,280 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-运算符" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="2024/10/05/%E8%BF%90%E7%AE%97%E7%AC%A6/" class="article-date">
+  <time class="dt-published" datetime="2024-10-05T14:34:53.000Z" itemprop="datePublished">2024-10-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="2024/10/05/%E8%BF%90%E7%AE%97%E7%AC%A6/">03运算符</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a><strong>算术运算符</strong></h3><p>加（+）、减（-）、乘（*）、除（&#x2F;）和取模（%）就是原本的意思</p>
+<h4 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h4><p>比较运算符用来对表达式左边的操作数和右边的操作数进行比较，比较的结果为真则返回1，比较的结果<br>为假则返回0，其他情况则返回NULL。</p>
+<p>比较运算符经常被用来作为SELECT查询语句的条件来使用，返回符合条件的结果记录。</p>
+<table>
+<thead>
+<tr>
+<th align="center">运算符</th>
+<th align="center">名称</th>
+<th align="center">作用</th>
+<th align="center">示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">&#x3D;</td>
+<td align="center">等于运算符</td>
+<td align="center">判断两个值、字符串或表达式是否相等</td>
+<td align="center">SELECT * <br/>FROM employees <br/>where department_id&#x3D;90;</td>
+</tr>
+<tr>
+<td align="center">&lt;&#x3D;&gt;</td>
+<td align="center">安全等于运算</td>
+<td align="center">安全地判断两个值、字符串或表达式是否相等</td>
+<td align="center">SELECT * <br/>FROM employees <br/>where department_id&lt;&#x3D;&gt;90;</td>
+</tr>
+<tr>
+<td align="center">&lt;&gt;或者!&#x3D;</td>
+<td align="center">不等于运算符</td>
+<td align="center">安全地判断两个值、字符串或表达式是否不相等</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">&lt;,&gt;,&lt;&#x3D;,&gt;&#x3D;</td>
+<td align="center">小于、大于、小于或者等于、大于或者等于</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<p>在使用等号运算符时，遵循如下规则：</p>
+<ul>
+<li><p>如果等号两边的值、字符串或表达式都为字符串，则MySQL会按照字符串进行比较，其比较的<br>是每个字符串中字符的ANSI编码是否相等。</p>
+</li>
+<li><p>如果等号两边的值都是整数，则MySQL会按照整数来比较两个值的大小。</p>
+</li>
+<li><p>如果等号两边的值一个是整数，另一个是字符串，则MySQL会将字符串转化为数字进行比较。</p>
+</li>
+<li><p>如果等号两边的值、字符串或表达式中有一个为NULL，则比较结果为NULL。</p>
+<p>SELECT employee_id,last_name,commission_pct FROM employees where commission_pct&#x3D;NULL;<br>不会有任何结果</p>
+</li>
+</ul>
+<p><strong>安全等于运算符</strong> 安全等于运算符（&lt;&#x3D;&gt;）与等于运算符（&#x3D;）的作用是相似的， 唯一的区别 是‘&lt;&#x3D;&gt;’可<br>以用来对NULL进行判断。在两个操作数均为NULL时，其返回值为1，而不为NULL；当一个操作数为NULL<br>时，其返回值为0，而不为NULL</p>
+<p>SELECT employee_id,last_name,commission_pct FROM employees where commission_pct&lt;&#x3D;&gt;NULL;</p>
+<h4 id="非字符的运算符"><a href="#非字符的运算符" class="headerlink" title="非字符的运算符"></a>非字符的运算符</h4><table>
+<thead>
+<tr>
+<th align="center">运算符</th>
+<th align="center">名称</th>
+<th align="center">示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">IS NULL</td>
+<td align="center">为空运算符</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">IS NOT NULL</td>
+<td align="center">不为空运算符</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">LEAST</td>
+<td align="center">最小运算符</td>
+<td align="center">SELECT LEAST(20,30,40)</td>
+</tr>
+<tr>
+<td align="center">GREATEST</td>
+<td align="center">最大运算符</td>
+<td align="center">SELECT GREATEST(20,30,40)</td>
+</tr>
+<tr>
+<td align="center">BETWEEN…AND</td>
+<td align="center">两值之间的运算符</td>
+<td align="center">SELECT * FROM employees where salary BETWEEN 6000 and 7000;</td>
+</tr>
+<tr>
+<td align="center">ISNULL</td>
+<td align="center">为空运算符</td>
+<td align="center">SELECT * FROM employees where ISNULL(commission_pct);</td>
+</tr>
+<tr>
+<td align="center">IN</td>
+<td align="center">属于运算符</td>
+<td align="center">SELECT * FROM employees WHERE department_id IN (10,20,40);</td>
+</tr>
+<tr>
+<td align="center">NOT IN</td>
+<td align="center">不属于运算符</td>
+<td align="center">SELECT * FROM employees WHERE department_id NOT IN (10,20,40);</td>
+</tr>
+<tr>
+<td align="center">LIKE</td>
+<td align="center">模糊匹配运算符</td>
+<td align="center">SELECT * FROM employees WHERE first_name like ‘%a%d%’;<br/>SELECT * FROM employees WHERE first_name like ‘_a%d%’;</td>
+</tr>
+<tr>
+<td align="center">REGEXP</td>
+<td align="center">正则表达式运算符</td>
+<td align="center">SELECT * FROM employees WHERE first_name REGEXP ‘^D’;</td>
+</tr>
+<tr>
+<td align="center">RLIKE</td>
+<td align="center">正则表达式运算符</td>
+<td align="center">SELECT * FROM employees WHERE first_name RLIKE ‘D$’;</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>（1）‘^’匹配以该字符后面的字符开头的字符串。</p>
+<p>（2）‘$’匹配以该字符前面的字符结尾的字符串。</p>
+<p>（3）‘.’匹配任何一个单字符。</p>
+<p>（4）“[…]”匹配在方括号内的任何字符。例如，“[abc]”匹配“a”或“b”或“c”。为了命名字符的范围，使用一<br>    个‘-’。“[a-z]”匹配任何字母，而“[0-9]”匹配任何数字。</p>
+<p>（5）‘*’匹配零个或多个在它前面的字符。例如，“x*”匹配任何数量的‘x’字符，“[0-9]<em>”匹配任何数量的数字，</em><br>    而“*”匹配任何数量的任何字符。</p>
+</blockquote>
+<h3 id="拓展：使用正则表达式查询"><a href="#拓展：使用正则表达式查询" class="headerlink" title="拓展：使用正则表达式查询"></a><strong>拓展：使用正则表达式查询</strong></h3><hr>
+<p>正则表达式通常被用来检索或替换那些符合某个模式的文本内容，根据指定的匹配模式匹配文本中符合<br>要求的特殊字符串。例如，从一个文本文件中提取电话号码，查找一篇文章中重复的单词或者替换用户<br>输入的某些敏感词语等，这些地方都可以使用正则表达式。正则表达式强大而且灵活，可以应用于非常<br>复杂的查询。</p>
+<p>MySQL中使用REGEXP关键字指定正则表达式的字符匹配模式。下表列出了REGEXP操作符中常用字符匹配<br>列表。</p>
+<p><img src="%E8%BF%90%E7%AE%97%E7%AC%A6/image-20241006013006701.png" alt="image-20241006013006701"></p>
+<ol>
+<li><strong>查询以特定字符或字符串开头的记录</strong> 字符‘^’匹配以特定字符或者字符串开头的文本。<br>在employees表中，查询first_name字段以字母‘D’开头的记录，SQL语句如下：</li>
+</ol>
+<blockquote>
+<p>SELECT * FROM employees WHERE first_name REGEXP ‘^D’;</p>
+</blockquote>
+<ol start="2">
+<li><strong>查询以特定字符或字符串结尾的记录</strong> 字符‘$’匹配以特定字符或者字符串结尾的文本。<br>在employees表中，查询first_name字段以字母‘D’结尾的记录，SQL语句如下：</li>
+</ol>
+<blockquote>
+<p>SELECT * FROM employees WHERE first_name RLIKE ‘D$’;</p>
+</blockquote>
+<ol start="3">
+<li><strong>用符号”.”来替代字符串中的任意一个字符</strong> 字符‘.’匹配任意一个字符。 在employees表中，查询first_name字段值<br>包含字母‘v’与‘l’且两个字母之间只有一个字母的记录，SQL语句如下：</li>
+</ol>
+<blockquote>
+<p>SELECT * FROM employees WHERE first_name RLIKE ‘v.l’;</p>
+</blockquote>
+<ol start="4">
+<li><strong>使用”*”和”+”来匹配多个字符</strong> 星号‘*’匹配前面的字符任意多次，包括0次。加号‘+’匹配前面的字符至<br> 少一次。<br> 在employees表中查找first_name中包含a 0次及以上的，其实会返回全部<br> 在employees表中查找first_name中包含a 1次及以上的，返回至少包含一个a的</li>
+</ol>
+<blockquote>
+<p>SELECT * FROM employees WHERE first_name RLIKE ‘a*’;<br>SELECT * FROM employees WHERE first_name RLIKE ‘a+’;</p>
+</blockquote>
+<ol start="5">
+<li>匹配指定字符串 正则表达式可以匹配指定字符串，只要这个字符串在查询文本中即可，如要匹配多个<br>字符串，多个字符串之间使用分隔符‘|’隔开。<br>在employees表中查找包含ay或者hn的</li>
+</ol>
+<blockquote>
+<p>SELECT * FROM employees WHERE first_name REGEXP ‘ay|hn’;</p>
+</blockquote>
+<ol start="6">
+<li>匹配指定字符中的任意一个 方括号“[]”指定一个字符集合，只匹配其中任何一个字符，即为所查找的<br> 文本。<br> 在employees表中查找包含a,n,k的</li>
+</ol>
+<blockquote>
+<p>SELECT * FROM employees WHERE first_name REGEXP ‘[ank]’;</p>
+</blockquote>
+<ol start="7">
+<li><p><del>匹配指定字符以外的字符 “[^字符集合]” 匹配不在指定集合中的任何字符。<br>在employees表中查找不包含 a,n,k的字符</del></p>
+</li>
+<li><p>使用{n,}或者{n,m}来指定字符串连续出现的次数 “字符串{n,}”表示至少匹配n次前面的字符；“字符串<br>{n,m}”表示匹配前面的字符串不少于n次，不多于m次。例如，a{2,}表示字母a连续出现至少2次，也可以<br>大于2次；a{2,4}表示字母a连续出现最少2次，最多不能超过4次。</p>
+</li>
+</ol>
+<blockquote>
+<p>SELECT * FROM employees WHERE first_name REGEXP ‘n{2,4}’;</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/10/05/%E8%BF%90%E7%AE%97%E7%AC%A6/" data-id="cm1xo3enf000fowvb52gw06r2" data-title="03运算符" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/MySQL/" rel="tag">MySQL</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-基本的SELECT查询" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="2024/10/05/%E5%9F%BA%E6%9C%AC%E7%9A%84SELECT%E6%9F%A5%E8%AF%A2/" class="article-date">
+  <time class="dt-published" datetime="2024-10-05T03:46:06.000Z" itemprop="datePublished">2024-10-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="2024/10/05/%E5%9F%BA%E6%9C%AC%E7%9A%84SELECT%E6%9F%A5%E8%AF%A2/">02基本的SELECT查询</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="基本的查询"><a href="#基本的查询" class="headerlink" title="基本的查询"></a>基本的查询</h4><p>SELECT 1</p>
+<p>SELECT …FROM…</p>
+<p>SELECT employee_id,first_name,last_name FROM employees;</p>
+<h4 id="别名"><a href="#别名" class="headerlink" title="别名"></a>别名</h4><p>紧跟列名，也可以<strong>在列名和别名之间加入关键字AS，别名使用双引号</strong>，以便在别名中包含空格或特殊的字符并区分大小写。AS可以省略。也可以不加双引号。</p>
+<p>SELECT employee_id  ID,first_name AS 姓,last_name 名字, salary*12 as “Anual Salary” FROM employees;</p>
+<h4 id="去除重复行"><a href="#去除重复行" class="headerlink" title="去除重复行"></a>去除重复行</h4><p>SELECT DISTINCT department_id FROM employees;</p>
+<p><strong>空值参与运算</strong></p>
+<p>所有运算符或列值遇到null值，运算的结果都为null</p>
+<p>SELECT employee_id,salary,commission_pct, salary*(1+commission_pct)*12 as “年工资” FROM employees;</p>
+<p>SELECT employee_id,salary,commission_pct, salary*(1+IFNULL(commission_pct,0))*12 as “年工资” FROM employees;</p>
+<p>IFNULL如果为空就为后面的值，不为空那就是原来的值</p>
+<p><strong>着重号</strong></p>
+<p>我们需要保证表中的字段、表名等没有和保留字、数据库系统或常用方法冲突。如果真的相同，请在SQL语句中使用一对&#96;&#96;（着重号）引起来。</p>
+<p><strong>查询常数</strong></p>
+<p>SELECT 查询还可以对常数进行查询。对的，就是在 SELECT 查询结果中增加一列固定的常数列。这列的</p>
+<p>取值是我们指定的，而不是从数据表中动态取出的。<br>SELECT ‘湖北省’,42,employee_id,first_name,last_name from employees;</p>
+<p><strong>显示表结构</strong></p>
+<p>使用DESCRIBE 或 DESC 命令，表示表结构。</p>
+<p><strong>过滤数据</strong></p>
+<p>SELECT * FROM employees where department_id&#x3D;90;<br>SELECT * FROM employees WHERE last_name&#x3D;’King’;</p>
+<blockquote>
+<p>MySQL大小写不敏感，King用小写king也能查出来</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/10/05/%E5%9F%BA%E6%9C%AC%E7%9A%84SELECT%E6%9F%A5%E8%AF%A2/" data-id="cm1xo3ena0008owvb39a37tzh" data-title="02基本的SELECT查询" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/MySQL/" rel="tag">MySQL</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-MySQL基础内容" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="2024/10/04/MySQL%E5%9F%BA%E7%A1%80%E5%86%85%E5%AE%B9/" class="article-date">
@@ -114,11 +388,14 @@
 <blockquote>
 <p>主要的语句关键字包括GRANT、REVOKE、COMMIT、ROLLBACK、SAVEPOINT等。</p>
 </blockquote>
+<h4 id="建议规范"><a href="#建议规范" class="headerlink" title="建议规范"></a>建议规范</h4><p>数据库名，表明，字段名都用小写<br>关键字，函数名 用大写</p>
+<h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h4><p>– 单行注释<br>&#x2F;# 单行注释<br>&#x2F;*  *&#x2F;  多行注释，不支持嵌套 </p>
+<h4 id="导入数据"><a href="#导入数据" class="headerlink" title="导入数据"></a>导入数据</h4><p>命令行 source  *.sql;<br>图形界面  </p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/04/MySQL%E5%9F%BA%E7%A1%80%E5%86%85%E5%AE%B9/" data-id="cm1uw2s3s0003xgvbegl6hm0n" data-title="01MySQL基础内容" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/04/MySQL%E5%9F%BA%E7%A1%80%E5%86%85%E5%AE%B9/" data-id="cm1xo3en50003owvbd3hz0tzz" data-title="01MySQL基础内容" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -158,7 +435,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/03/%E5%91%BD%E4%BB%A4%E7%9A%84%E5%B8%AE%E5%8A%A9%E7%94%A8%E6%B3%95/" data-id="cm1uw2s3w0008xgvbasov297d" data-title="05命令的帮助用法" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/03/%E5%91%BD%E4%BB%A4%E7%9A%84%E5%B8%AE%E5%8A%A9%E7%94%A8%E6%B3%95/" data-id="cm1xo3en80005owvb0sye0g3w" data-title="05命令的帮助用法" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -202,7 +479,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/03/%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" data-id="cm1uw2s3w000axgvbdz4d4j8x" data-title="04快捷键使用技巧" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/03/%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" data-id="cm1xo3ene000dowvbbtdg9ycg" data-title="04快捷键使用技巧" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -246,7 +523,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/02/%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7%E7%94%A8%E6%B3%95%E5%92%8C%E5%8C%BA%E5%88%AB/" data-id="cm1uw2s3x000dxgvb7y7n2l14" data-title="04特殊符号用法和区别" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/02/%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7%E7%94%A8%E6%B3%95%E5%92%8C%E5%8C%BA%E5%88%AB/" data-id="cm1xo3eni000iowvb9v5hh7lo" data-title="04特殊符号用法和区别" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -301,7 +578,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/02/%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F%E8%AF%A6%E8%A7%A3/" data-id="cm1uw2s3t0005xgvbaxtv0jlk" data-title="03.命令格式详解" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/02/%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F%E8%AF%A6%E8%A7%A3/" data-id="cm1xo3enb000aowvbgi7t1270" data-title="03.命令格式详解" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -364,7 +641,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/09/29/Linxu%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4%E8%BF%87%E7%A8%8B%E5%92%8C%E5%91%BD%E4%BB%A4%E7%B1%BB%E5%9E%8B/" data-id="cm1uw2s3p0001xgvb0sr33kj3" data-title="02.Linxu执行命令过程和命令类型" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/09/29/Linxu%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4%E8%BF%87%E7%A8%8B%E5%92%8C%E5%91%BD%E4%BB%A4%E7%B1%BB%E5%9E%8B/" data-id="cm1xo3en60004owvbelw19z02" data-title="02.Linxu执行命令过程和命令类型" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -421,7 +698,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/09/28/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%88%9D%E6%AC%A1%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-id="cm1uw2s3k0000xgvbf8tzg5oy" data-title="01.Linux学习笔记--初次安装常用命令" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/09/28/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%88%9D%E6%AC%A1%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-id="cm1xo3emx0000owvbgeh860t2" data-title="01.Linux学习笔记--初次安装常用命令" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -478,7 +755,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/08/13/hello-world/" data-id="cm1uw2s3s0004xgvb2v3u3tp6" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/08/13/hello-world/" data-id="cm1xo3en10001owvbhwqc81n9" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -515,7 +792,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="tags/Linux/" style="font-size: 20px;">Linux</a> <a href="tags/MySQL/" style="font-size: 10px;">MySQL</a>
+      <a href="tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="tags/Linux/" style="font-size: 20px;">Linux</a> <a href="tags/MySQL/" style="font-size: 15px;">MySQL</a>
     </div>
   </div>
 
@@ -537,6 +814,14 @@
       <ul>
         
           <li>
+            <a href="2024/10/05/%E8%BF%90%E7%AE%97%E7%AC%A6/">03运算符</a>
+          </li>
+        
+          <li>
+            <a href="2024/10/05/%E5%9F%BA%E6%9C%AC%E7%9A%84SELECT%E6%9F%A5%E8%AF%A2/">02基本的SELECT查询</a>
+          </li>
+        
+          <li>
             <a href="2024/10/04/MySQL%E5%9F%BA%E7%A1%80%E5%86%85%E5%AE%B9/">01MySQL基础内容</a>
           </li>
         
@@ -546,14 +831,6 @@
         
           <li>
             <a href="2024/10/03/%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">04快捷键使用技巧</a>
-          </li>
-        
-          <li>
-            <a href="2024/10/02/%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7%E7%94%A8%E6%B3%95%E5%92%8C%E5%8C%BA%E5%88%AB/">04特殊符号用法和区别</a>
-          </li>
-        
-          <li>
-            <a href="2024/10/02/%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F%E8%AF%A6%E8%A7%A3/">03.命令格式详解</a>
           </li>
         
       </ul>
