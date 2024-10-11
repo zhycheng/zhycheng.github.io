@@ -75,6 +75,161 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-多表查询" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="2024/10/07/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/" class="article-date">
+  <time class="dt-published" datetime="2024-10-07T14:56:37.000Z" itemprop="datePublished">2024-10-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="2024/10/07/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/">05多表查询</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>SELECT last_name, department_name<br>FROM employees, departments<br>WHERE employees.department_id &#x3D; departments.department_id;</p>
+<p>表名可以用别名，用了之后 在SELECT和WHERE部分都得用别名<br>如果SELECT的子段在两个表里面都有，则带上表名</p>
+<blockquote>
+<p>SELECT table1.column, table2.column<br>FROM table1, table2<br>WHERE table1.column1 &#x3D; table2.column2; #连接条件</p>
+</blockquote>
+<p>SQL99语法实现多表查询</p>
+<blockquote>
+<p>SELECT table1.column, table2.column,table3.column<br>FROM table1<br>    JOIN table2 ON table1 和 table2 的连接条件<br>        JOIN table3 ON table2 和 table3 的连接条件</p>
+</blockquote>
+<p>SQL99 采用的这种嵌套结构非常清爽、层次性更强、可读性更强，即使再多的表进行连接也都清晰<br>可见。如果你采用 SQL92，可读性就会大打折扣。</p>
+<p>语法说明：</p>
+<ul>
+<li>可以使用 ON 子句指定额外的连接条件。</li>
+<li>这个连接条件是与其它条件分开的。</li>
+<li>ON 子句使语句具有更高的易读性。</li>
+<li>关键字 JOIN、INNER JOIN、CROSS JOIN 的含义是一样的，都表示内连接</li>
+</ul>
+<h4 id="内连接-INNER-JOIN-的实现"><a href="#内连接-INNER-JOIN-的实现" class="headerlink" title="内连接(INNER JOIN)的实现"></a>内连接(INNER JOIN)的实现</h4><p>语法</p>
+<blockquote>
+<p>SELECT 字段列表<br>FROM A表 INNER JOIN B表<br>ON 关联条件<br>WHERE 等其他子句;</p>
+</blockquote>
+<p>INNER 可以省略</p>
+<h4 id="外连接-OUTER-JOIN-的实现"><a href="#外连接-OUTER-JOIN-的实现" class="headerlink" title="外连接(OUTER JOIN)的实现"></a>外连接(OUTER JOIN)的实现</h4><h5 id="左外连接-LEFT-OUTER-JOIN"><a href="#左外连接-LEFT-OUTER-JOIN" class="headerlink" title="左外连接(LEFT OUTER JOIN)"></a>左外连接(LEFT OUTER JOIN)</h5><p>语法</p>
+<blockquote>
+<p>#实现查询结果是A<br>SELECT 字段列表<br>FROM A表 LEFT OUTER JOIN B表<br>ON 关联条件<br>WHERE 等其他子句;</p>
+</blockquote>
+<p>OUTER 可以省略</p>
+<h5 id="右外连接-RIGHT-OUTER-JOIN"><a href="#右外连接-RIGHT-OUTER-JOIN" class="headerlink" title="右外连接(RIGHT OUTER JOIN)"></a>右外连接(RIGHT OUTER JOIN)</h5><p>语法</p>
+<blockquote>
+<p>FROM A表 RIGHT OUTER JOIN B表<br>ON 关联条件<br>WHERE 等其他子句;</p>
+</blockquote>
+<p>OUTER可以省略</p>
+<h5 id="满外连接-FULL-OUTER-JOIN"><a href="#满外连接-FULL-OUTER-JOIN" class="headerlink" title="满外连接(FULL OUTER JOIN)"></a>满外连接(FULL OUTER JOIN)</h5><blockquote>
+<ul>
+<li>满外连接的结果 &#x3D; 左右表匹配的数据 + 左表没有匹配到的数据 + 右表没有匹配到的数据</li>
+<li>SQL99是支持满外连接的。使用FULL JOIN 或 FULL OUTER JOIN来实现</li>
+<li>需要注意的是，MySQL不支持FULL JOIN，但是可以用 LEFT JOIN UNION RIGHT join代替。</li>
+</ul>
+</blockquote>
+<h4 id="UNION的使用"><a href="#UNION的使用" class="headerlink" title="UNION的使用"></a>UNION的使用</h4><p><font color=Red>合并查询结果</font> 利用UNION关键字，可以给出多条SELECT语句，并将它们的结果组合成单个结果集。合并<br>时，两个表对应的列数和数据类型必须相同，并且相互对应。各个SELECT语句之间使用UNION或UNION<br>ALL关键字分隔。</p>
+<p>语法格式：</p>
+<blockquote>
+<p>SELECT column,… FROM table1<br>UNION [ALL]<br>SELECT column,… FROM table2</p>
+</blockquote>
+<p><font color=red>UNION操作符</font><br>UNION 操作符返回两个查询的结果集的并集，去除重复记录。</p>
+<p><font color=red>UNION ALL操作符</font><br>UNION ALL操作符返回两个查询的结果集的并集。对于两个结果集的重复部分，不去重。</p>
+<blockquote>
+<p>注意：执行UNION ALL语句时所需要的资源比UNION语句少。如果明确知道合并数据后的结果数据<br>不存在重复数据，或者不需要去除重复的数据，则尽量使用UNION ALL语句，以提高数据查询的效<br>率。</p>
+</blockquote>
+<h4 id="7种SQL-JOINS的实现"><a href="#7种SQL-JOINS的实现" class="headerlink" title="7种SQL JOINS的实现"></a>7种SQL JOINS的实现</h4><p><img src="image-20241011233800297.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/10/07/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/" data-id="cm24wc91k000dp8vb199bg59q" data-title="05多表查询" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/MySQL/" rel="tag">MySQL</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-排序与分页" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="2024/10/06/%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%88%86%E9%A1%B5/" class="article-date">
+  <time class="dt-published" datetime="2024-10-06T15:14:52.000Z" itemprop="datePublished">2024-10-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="2024/10/06/%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%88%86%E9%A1%B5/">04排序与分页</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><h4 id="1-排序规则"><a href="#1-排序规则" class="headerlink" title="1.排序规则"></a>1.排序规则</h4><ul>
+<li>使用 ORDER BY 子句排序<ul>
+<li>ASC（ascend）: 升序</li>
+<li>DESC（descend）:降序</li>
+</ul>
+</li>
+<li>ORDER BY 子句在SELECT语句的结尾。</li>
+<li>排序默认升序</li>
+</ul>
+<h4 id="2-多列排序"><a href="#2-多列排序" class="headerlink" title="2.多列排序"></a>2.多列排序</h4><blockquote>
+<p>SELECT last_name, department_id, salary<br>FROM employees<br>ORDER BY department_id ASC, salary DESC;</p>
+</blockquote>
+<h2 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h2><h4 id="1-实现规则"><a href="#1-实现规则" class="headerlink" title="1.实现规则"></a>1.实现规则</h4><ul>
+<li><p>分页原理 所谓分页显示，就是将数据库中的结果集，一段一段显示出来需要的条件。</p>
+</li>
+<li><p><font color = red> MySQL</font>中使用 LIMIT 实现分页</p>
+</li>
+<li><p>格式：</p>
+<blockquote>
+<p>LIMIT [位置偏移量,] 行数</p>
+<p>第一个“位置偏移量”参数指示MySQL从哪一行开始显示，是一个可选参数，如果不指定“位置偏移<br>量”，将会从表中的第一条记录开始（第一条记录的位置偏移量是0，第二条记录的位置偏移量是<br>1，以此类推）；第二个参数“行数”指示返回的记录条数。</p>
+</blockquote>
+</li>
+</ul>
+<p>&#x3D;&#x3D;注意：LIMIT 子句必须放在整个SELECT语句的最后！&#x3D;&#x3D;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/10/06/%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%88%86%E9%A1%B5/" data-id="cm24wc91l000ip8vb71df10he" data-title="04排序与分页" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/MySQL/" rel="tag">MySQL</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-运算符" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="2024/10/05/%E8%BF%90%E7%AE%97%E7%AC%A6/" class="article-date">
@@ -248,13 +403,15 @@
 <p>SELECT * FROM employees WHERE first_name RLIKE ‘a*’;<br>SELECT * FROM employees WHERE first_name RLIKE ‘a+’;</p>
 </blockquote>
 <ol start="5">
-<li>匹配指定字符串 正则表达式可以匹配指定字符串，只要这个字符串在查询文本中即可，如要匹配多个<br>字符串，多个字符串之间使用分隔符‘|’隔开。<br>在employees表中查找包含ay或者hn的</li>
+<li><p><strong>匹配指定字符串</strong> 正则表达式可以匹配指定字符串，只要这个字符串在查询文本中即可，如要匹配多个</p>
+<p>字符串，多个字符串之间使用分隔符‘|’隔开。<br>在employees表中查找包含ay或者hn的</p>
+</li>
 </ol>
 <blockquote>
 <p>SELECT * FROM employees WHERE first_name REGEXP ‘ay|hn’;</p>
 </blockquote>
 <ol start="6">
-<li>匹配指定字符中的任意一个 方括号“[]”指定一个字符集合，只匹配其中任何一个字符，即为所查找的<br> 文本。<br> 在employees表中查找包含a,n,k的</li>
+<li><strong>匹配指定字符中的任意一个</strong> 方括号“[]”指定一个字符集合，只匹配其中任何一个字符，即为所查找的<br> 文本。<br> 在employees表中查找包含a,n,k的</li>
 </ol>
 <blockquote>
 <p>SELECT * FROM employees WHERE first_name REGEXP ‘[ank]’;</p>
@@ -262,17 +419,18 @@
 <ol start="7">
 <li><p><del>匹配指定字符以外的字符 “[^字符集合]” 匹配不在指定集合中的任何字符。<br>在employees表中查找不包含 a,n,k的字符</del></p>
 </li>
-<li><p>使用{n,}或者{n,m}来指定字符串连续出现的次数 “字符串{n,}”表示至少匹配n次前面的字符；“字符串<br>{n,m}”表示匹配前面的字符串不少于n次，不多于m次。例如，a{2,}表示字母a连续出现至少2次，也可以<br>大于2次；a{2,4}表示字母a连续出现最少2次，最多不能超过4次。</p>
+<li><p><strong>使用{n,}或者{n,m}来指定字符串连续出现的次数</strong> “字符串{n,}”表示至少匹配n次前面的字符；“字符串<br>{n,m}”表示匹配前面的字符串不少于n次，不多于m次。例如，a{2,}表示字母a连续出现至少2次，也可以<br>大于2次；a{2,4}表示字母a连续出现最少2次，最多不能超过4次。</p>
 </li>
 </ol>
 <blockquote>
 <p>SELECT * FROM employees WHERE first_name REGEXP ‘n{2,4}’;</p>
 </blockquote>
+<h4 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h4><p>AND的优先级高于OR<br>异或XOR 相异为真，相同为假</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/05/%E8%BF%90%E7%AE%97%E7%AC%A6/" data-id="cm1xod379000f5wvb5t7k0s30" data-title="03运算符" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/05/%E8%BF%90%E7%AE%97%E7%AC%A6/" data-id="cm24wc91n000qp8vb419w3q22" data-title="03运算符" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -335,7 +493,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/05/%E5%9F%BA%E6%9C%AC%E7%9A%84SELECT%E6%9F%A5%E8%AF%A2/" data-id="cm1xod37600085wvbcg4r1ue4" data-title="02基本的SELECT查询" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/05/%E5%9F%BA%E6%9C%AC%E7%9A%84SELECT%E6%9F%A5%E8%AF%A2/" data-id="cm24wc91j000ap8vb767k80hw" data-title="02基本的SELECT查询" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -395,7 +553,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/04/MySQL%E5%9F%BA%E7%A1%80%E5%86%85%E5%AE%B9/" data-id="cm1xod37300035wvb9teg78ho" data-title="01MySQL基础内容" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/04/MySQL%E5%9F%BA%E7%A1%80%E5%86%85%E5%AE%B9/" data-id="cm24wc91e0003p8vb2qqjgs1o" data-title="01MySQL基础内容" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -431,11 +589,20 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <p> 获得帮助</p>
+<ul>
+<li>whatis<br>刚刚装好的系统没有，过段时间就有，可以执行mandb立即生成帮助信息</li>
+<li>cmd –help</li>
+<li>man and info</li>
+<li>&#x2F;usr&#x2F;share&#x2F;doc&#x2F;</li>
+<li>Red Hat Documentation</li>
+<li>其他网站和搜索</li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/03/%E5%91%BD%E4%BB%A4%E7%9A%84%E5%B8%AE%E5%8A%A9%E7%94%A8%E6%B3%95/" data-id="cm1xod37400055wvbga99cw3d" data-title="05命令的帮助用法" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/03/%E5%91%BD%E4%BB%A4%E7%9A%84%E5%B8%AE%E5%8A%A9%E7%94%A8%E6%B3%95/" data-id="cm24wc91j0008p8vbadtbb3qs" data-title="05命令的帮助用法" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -479,7 +646,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/03/%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" data-id="cm1xod377000a5wvb2uqqfw5q" data-title="04快捷键使用技巧" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/03/%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" data-id="cm24wc91k000fp8vb0cf366yb" data-title="04快捷键使用技巧" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -523,7 +690,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/02/%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7%E7%94%A8%E6%B3%95%E5%92%8C%E5%8C%BA%E5%88%AB/" data-id="cm1xod379000i5wvbektffoph" data-title="04特殊符号用法和区别" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/02/%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7%E7%94%A8%E6%B3%95%E5%92%8C%E5%8C%BA%E5%88%AB/" data-id="cm24wc91n000pp8vb3ddxd8sn" data-title="04特殊符号用法和区别" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -578,7 +745,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/02/%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F%E8%AF%A6%E8%A7%A3/" data-id="cm1xod378000d5wvb7r832d94" data-title="03.命令格式详解" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/02/%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F%E8%AF%A6%E8%A7%A3/" data-id="cm24wc91g0005p8vb8rw2g4a3" data-title="03.命令格式详解" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -641,7 +808,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/09/29/Linxu%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4%E8%BF%87%E7%A8%8B%E5%92%8C%E5%91%BD%E4%BB%A4%E7%B1%BB%E5%9E%8B/" data-id="cm1xod37200015wvbeqstc895" data-title="02.Linxu执行命令过程和命令类型" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/09/29/Linxu%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4%E8%BF%87%E7%A8%8B%E5%92%8C%E5%91%BD%E4%BB%A4%E7%B1%BB%E5%9E%8B/" data-id="cm24wc91c0001p8vb40tfh7gf" data-title="02.Linxu执行命令过程和命令类型" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -655,121 +822,12 @@
 
 
   
-    <article id="post-Linux学习笔记-初次安装常用命令" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="2024/09/28/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%88%9D%E6%AC%A1%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="article-date">
-  <time class="dt-published" datetime="2024-09-28T13:16:22.000Z" itemprop="datePublished">2024-09-28</time>
-</a>
+
+
+  <nav id="page-nav">
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="2024/09/28/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%88%9D%E6%AC%A1%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">01.Linux学习笔记--初次安装常用命令</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><p>tty 打印当前连接终端  (Print the file name of the terminal connected to standard input.)<br>who 登录的用户(Print information about users who are currently logged in.)<br>whoami  当前用户<br>who am i  详细<br>w 系统当前所有的登录会话及所做的操作<br>sudo -i 切换城root用户<br>hostname -I 获取网络IP</p>
-<blockquote>
-<p> -I, –all-ip-addresses<br>               Display  all network addresses of the host. This option enumerates all configured addresses on all network interfaces. The loopback interface and IPv6 link-local<br>              addresses are omitted. Contrary to option -i, this option does not depend on name resolution. Do not make any assumptions about the order of the output.</p>
-</blockquote>
-<p>Ctrl+Alt+F1和Ctrl+Alt+F2 字符界面和图形界面切换<br>free -h 查看内存占用<br>runlevel 当前的模式 5代表图形 3代表字符界面<br>init 3 切换字符界面<br>init 5 切换图形界面<br>init 0 关机<br>init 6 重启</p>
-<p>cat &#x2F;etc&#x2F;motd 查看文本<br>nano 查看文本，可以编辑<br>&#x2F;etc&#x2F;motd 登录之后显示的文件<br>&#x2F;etc&#x2F;issue 登录之前显示的文件<br>echo 输出</p>
-<p>echo -e “\a”  解释字符</p>
-<p>ps aux查看进程<br>echo $SHELL 查看当前使用的shell<br>cat &#x2F;etc&#x2F;shells 查看当前系统支持的所有shell<br>hostname 查看主机名 在文件 &#x2F;etc&#x2F;hostname<br>hostname xxx 临时修改主机名 在内存中，重启失效<br>hostnamectl set-hostname XXX 内存和文件都改了，重启依然有效<br>echo  PS1 提示格式(PS1前面加美元符号) 可以改，没必要</p>
-<h4 id="查看cpu"><a href="#查看cpu" class="headerlink" title="查看cpu"></a>查看cpu</h4><p>lscpu或者cat &#x2F;proc&#x2F;cpuinfo</p>
-<h4 id="查看内存"><a href="#查看内存" class="headerlink" title="查看内存"></a>查看内存</h4><p>free或者cat &#x2F;proc&#x2F;meminfo</p>
-<h4 id="硬盘"><a href="#硬盘" class="headerlink" title="硬盘"></a>硬盘</h4><p>lsblk 或者 cat &#x2F;proc&#x2F;partitions</p>
-<h4 id="系统"><a href="#系统" class="headerlink" title="系统"></a>系统</h4><p>uname -r   内核<br>cat &#x2F;etc&#x2F;redhat-release   &#x2F;&#x2F;redhat系<br>cat &#x2F;etc&#x2F;os-release         &#x2F;&#x2F;all</p>
-<h4 id="时间"><a href="#时间" class="headerlink" title="时间"></a>时间</h4><p>date 查看和修改时间  保存在内存里面<br>clock 硬件时间<br>clock -s 以硬件时间为准，校正系统时间<br>clock -w以系统时间为准，校正硬件时间<br>cat &#x2F;etc&#x2F;localtime 查看时区<br>timedatectl set-timezone Asia&#x2F;Shanghai 设置为上海时区<br>cal  -y 查看日历 今年<br>cal 2020<br>cal 10 2025</p>
-<h4 id="会话管理"><a href="#会话管理" class="headerlink" title="会话管理"></a>会话管理</h4><p>screen</p>
-<p>tmux</p>
-<p>都可以实现远程协助</p>
-<p>hexdump -C test.txt 查看16进制</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/09/28/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%88%9D%E6%AC%A1%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-id="cm1xod36y00005wvb5bpw4vq4" data-title="01.Linux学习笔记--初次安装常用命令" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Linux/" rel="tag">Linux</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="2024/08/13/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2024-08-13T01:47:23.154Z" itemprop="datePublished">2024-08-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="2024/08/13/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a>  </p>
-<p>hexo clean &#x2F;&#x2F;清除缓存<br>hexo g &#x2F;&#x2F;生成新数据<br>hexo d &#x2F;&#x2F;部署<br>hexo s &#x2F;&#x2F;启动本地服务预览<br>npm install hexo -g &#x2F;&#x2F;安装Hexo<br>npm update hexo -g &#x2F;&#x2F;升级<br>hexo init #初始化博客<br>hexo server -p 5000 #更改端口</p>
-<p>一般来说 都是执行</p>
-<p>hexo clean &#x2F;&#x2F;清除缓存<br>hexo g &#x2F;&#x2F;生成新数据<br>hexo d &#x2F;&#x2F;部署</p>
-<p>就发布到github去了</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/08/13/hello-world/" data-id="cm1xod37400045wvb08bp6b54" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Hexo/" rel="tag">Hexo</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
+    <span class="page-number current">1</span><a class="page-number" href="page/2/">2</a><a class="extend next" rel="next" href="page/2/">weiter &raquo;</a>
+  </nav>
 
 </section>
         
@@ -814,6 +872,14 @@
       <ul>
         
           <li>
+            <a href="2024/10/07/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/">05多表查询</a>
+          </li>
+        
+          <li>
+            <a href="2024/10/06/%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%88%86%E9%A1%B5/">04排序与分页</a>
+          </li>
+        
+          <li>
             <a href="2024/10/05/%E8%BF%90%E7%AE%97%E7%AC%A6/">03运算符</a>
           </li>
         
@@ -823,14 +889,6 @@
         
           <li>
             <a href="2024/10/04/MySQL%E5%9F%BA%E7%A1%80%E5%86%85%E5%AE%B9/">01MySQL基础内容</a>
-          </li>
-        
-          <li>
-            <a href="2024/10/03/%E5%91%BD%E4%BB%A4%E7%9A%84%E5%B8%AE%E5%8A%A9%E7%94%A8%E6%B3%95/">05命令的帮助用法</a>
-          </li>
-        
-          <li>
-            <a href="2024/10/03/%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">04快捷键使用技巧</a>
           </li>
         
       </ul>

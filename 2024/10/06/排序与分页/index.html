@@ -4,19 +4,19 @@
   <meta charset="utf-8">
   
   
-  <title>03.命令格式详解 | zhycheng‘s blog</title>
+  <title>04排序与分页 | zhycheng‘s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="COMMAND [OOPTIONS…] [ARGUMENTS…]选项：用于启用或者关闭命令的某个或某些功能  短选项: UNIX风格选项,-c 例如:-l,-h 长选项:GNU风格选项,–word例如:–all,–human BSD风格选项:一个字母,例如:a  参数：命令的作用对向，比如：文件名，用户名等   多个选项以及参数和命令之间使用空白字符分隔 强行退出 CTRL+C正常退出 CTRL+">
+  <meta name="description" content="排序1.排序规则 使用 ORDER BY 子句排序 ASC（ascend）: 升序 DESC（descend）:降序   ORDER BY 子句在SELECT语句的结尾。 排序默认升序  2.多列排序 SELECT last_name, department_id, salaryFROM employeesORDER BY department_id ASC, salary DESC;  分页1.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="03.命令格式详解">
-<meta property="og:url" content="http://example.com/2024/10/02/%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F%E8%AF%A6%E8%A7%A3/index.html">
+<meta property="og:title" content="04排序与分页">
+<meta property="og:url" content="http://example.com/2024/10/06/%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%88%86%E9%A1%B5/index.html">
 <meta property="og:site_name" content="zhycheng‘s blog">
-<meta property="og:description" content="COMMAND [OOPTIONS…] [ARGUMENTS…]选项：用于启用或者关闭命令的某个或某些功能  短选项: UNIX风格选项,-c 例如:-l,-h 长选项:GNU风格选项,–word例如:–all,–human BSD风格选项:一个字母,例如:a  参数：命令的作用对向，比如：文件名，用户名等   多个选项以及参数和命令之间使用空白字符分隔 强行退出 CTRL+C正常退出 CTRL+">
+<meta property="og:description" content="排序1.排序规则 使用 ORDER BY 子句排序 ASC（ascend）: 升序 DESC（descend）:降序   ORDER BY 子句在SELECT语句的结尾。 排序默认升序  2.多列排序 SELECT last_name, department_id, salaryFROM employeesORDER BY department_id ASC, salary DESC;  分页1.">
 <meta property="og:locale">
-<meta property="article:published_time" content="2024-10-02T02:46:57.000Z">
-<meta property="article:modified_time" content="2024-10-02T03:41:26.059Z">
+<meta property="article:published_time" content="2024-10-06T15:14:52.000Z">
+<meta property="article:modified_time" content="2024-10-06T16:02:52.945Z">
 <meta property="article:author" content="zhycheng">
-<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="../../../../atom.xml" title="zhycheng‘s blog" type="application/atom+xml">
@@ -76,10 +76,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-命令格式详解" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-排序与分页" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="" class="article-date">
-  <time class="dt-published" datetime="2024-10-02T02:46:57.000Z" itemprop="datePublished">2024-10-02</time>
+  <time class="dt-published" datetime="2024-10-06T15:14:52.000Z" itemprop="datePublished">2024-10-06</time>
 </a>
     
   </div>
@@ -90,7 +90,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      03.命令格式详解
+      04排序与分页
     </h1>
   
 
@@ -98,30 +98,40 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>COMMAND [OOPTIONS…] [ARGUMENTS…]<br>选项：用于启用或者关闭命令的某个或某些功能</p>
-<ul>
-<li>短选项: UNIX风格选项,-c 例如:-l,-h</li>
-<li>长选项:GNU风格选项,–word例如:–all,–human</li>
-<li>BSD风格选项:一个字母,例如:a</li>
+        <h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><h4 id="1-排序规则"><a href="#1-排序规则" class="headerlink" title="1.排序规则"></a>1.排序规则</h4><ul>
+<li>使用 ORDER BY 子句排序<ul>
+<li>ASC（ascend）: 升序</li>
+<li>DESC（descend）:降序</li>
 </ul>
-<p>参数：命令的作用对向，比如：文件名，用户名等</p>
-<blockquote>
-<ul>
-<li>多个选项以及参数和命令之间使用空白字符分隔</li>
-<li>强行退出 CTRL+C<br>正常退出 CTRL+D</li>
-<li>多个命令可以使用”;”符号分开</li>
-<li>一个命令可以用\分成多行</li>
+</li>
+<li>ORDER BY 子句在SELECT语句的结尾。</li>
+<li>排序默认升序</li>
 </ul>
+<h4 id="2-多列排序"><a href="#2-多列排序" class="headerlink" title="2.多列排序"></a>2.多列排序</h4><blockquote>
+<p>SELECT last_name, department_id, salary<br>FROM employees<br>ORDER BY department_id ASC, salary DESC;</p>
 </blockquote>
+<h2 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h2><h4 id="1-实现规则"><a href="#1-实现规则" class="headerlink" title="1.实现规则"></a>1.实现规则</h4><ul>
+<li><p>分页原理 所谓分页显示，就是将数据库中的结果集，一段一段显示出来需要的条件。</p>
+</li>
+<li><p><font color = red> MySQL</font>中使用 LIMIT 实现分页</p>
+</li>
+<li><p>格式：</p>
+<blockquote>
+<p>LIMIT [位置偏移量,] 行数</p>
+<p>第一个“位置偏移量”参数指示MySQL从哪一行开始显示，是一个可选参数，如果不指定“位置偏移<br>量”，将会从表中的第一条记录开始（第一条记录的位置偏移量是0，第二条记录的位置偏移量是<br>1，以此类推）；第二个参数“行数”指示返回的记录条数。</p>
+</blockquote>
+</li>
+</ul>
+<p>&#x3D;&#x3D;注意：LIMIT 子句必须放在整个SELECT语句的最后！&#x3D;&#x3D;</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/02/%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F%E8%AF%A6%E8%A7%A3/" data-id="cm24wc91g0005p8vb8rw2g4a3" data-title="03.命令格式详解" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/06/%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%88%86%E9%A1%B5/" data-id="cm24wc91l000ip8vb71df10he" data-title="04排序与分页" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/Linux/" rel="tag">Linux</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/MySQL/" rel="tag">MySQL</a></li></ul>
 
     </footer>
   </div>
@@ -129,19 +139,19 @@
     
 <nav id="article-nav">
   
-    <a href="../%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7%E7%94%A8%E6%B3%95%E5%92%8C%E5%8C%BA%E5%88%AB/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="../../07/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Neuer</strong>
       <div class="article-nav-title">
         
-          04特殊符号用法和区别
+          05多表查询
         
       </div>
     </a>
   
   
-    <a href="../../../09/29/Linxu%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4%E8%BF%87%E7%A8%8B%E5%92%8C%E5%91%BD%E4%BB%A4%E7%B1%BB%E5%9E%8B/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../../05/%E8%BF%90%E7%AE%97%E7%AC%A6/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">02.Linxu执行命令过程和命令类型</div>
+      <div class="article-nav-title">03运算符</div>
     </a>
   
 </nav>
@@ -197,7 +207,7 @@
           </li>
         
           <li>
-            <a href="../../06/%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%88%86%E9%A1%B5/">04排序与分页</a>
+            <a href="">04排序与分页</a>
           </li>
         
           <li>
