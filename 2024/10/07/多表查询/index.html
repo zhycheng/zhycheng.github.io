@@ -6,16 +6,16 @@
   
   <title>05多表查询 | zhycheng‘s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="SELECT last_name, department_nameFROM employees, departmentsWHERE employees.department_id &#x3D; departments.department_id; 表名可以用别名，用了之后 在SELECT和WHERE部分都得用别名如果SELECT的子段在两个表里面都有，则带上表名  SELECT table1.co">
+  <meta name="description" content="SELECT last_name, department_nameFROM employees, departmentsWHERE employees.department_id &#x3D; departments.department_id; 表名可以用别名，用了之后 在SELECT和WHERE部分都得用别名如果SELECT的子段在两个表里面都有，则带上表名 123SELECT table1.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="05多表查询">
 <meta property="og:url" content="http://example.com/2024/10/07/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/index.html">
 <meta property="og:site_name" content="zhycheng‘s blog">
-<meta property="og:description" content="SELECT last_name, department_nameFROM employees, departmentsWHERE employees.department_id &#x3D; departments.department_id; 表名可以用别名，用了之后 在SELECT和WHERE部分都得用别名如果SELECT的子段在两个表里面都有，则带上表名  SELECT table1.co">
+<meta property="og:description" content="SELECT last_name, department_nameFROM employees, departmentsWHERE employees.department_id &#x3D; departments.department_id; 表名可以用别名，用了之后 在SELECT和WHERE部分都得用别名如果SELECT的子段在两个表里面都有，则带上表名 123SELECT table1.">
 <meta property="og:locale">
 <meta property="og:image" content="https://zhycheng.github.io/images/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/image-20241011233800297.png">
 <meta property="article:published_time" content="2024-10-07T14:56:37.000Z">
-<meta property="article:modified_time" content="2024-10-13T15:10:28.576Z">
+<meta property="article:modified_time" content="2024-10-13T16:54:48.765Z">
 <meta property="article:author" content="zhycheng">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
@@ -102,9 +102,8 @@
       
         <p>SELECT last_name, department_name<br>FROM employees, departments<br>WHERE employees.department_id &#x3D; departments.department_id;</p>
 <p>表名可以用别名，用了之后 在SELECT和WHERE部分都得用别名<br>如果SELECT的子段在两个表里面都有，则带上表名</p>
-<blockquote>
-<p>SELECT table1.column, table2.column<br>FROM table1, table2<br>WHERE table1.column1 &#x3D; table2.column2; #连接条件</p>
-</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> table1.column, table2.column</span><br><span class="line"><span class="keyword">FROM</span> table1, table2</span><br><span class="line"><span class="keyword">WHERE</span> table1.column1 <span class="operator">=</span> table2.column2; #连接条件</span><br></pre></td></tr></table></figure>
+
 <p>SQL99语法实现多表查询</p>
 <blockquote>
 <p>SELECT table1.column, table2.column,table3.column<br>FROM table1<br>    JOIN table2 ON table1 和 table2 的连接条件<br>        JOIN table3 ON table2 和 table3 的连接条件</p>
@@ -171,7 +170,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/07/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/" data-id="cm27q2slp000du0vb35e23ai8" data-title="05多表查询" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/07/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/" data-id="cm27ttbnf000d90vbh472e8zk" data-title="05多表查询" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       

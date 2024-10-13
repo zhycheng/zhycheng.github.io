@@ -99,9 +99,8 @@
       
         <p>SELECT last_name, department_name<br>FROM employees, departments<br>WHERE employees.department_id &#x3D; departments.department_id;</p>
 <p>表名可以用别名，用了之后 在SELECT和WHERE部分都得用别名<br>如果SELECT的子段在两个表里面都有，则带上表名</p>
-<blockquote>
-<p>SELECT table1.column, table2.column<br>FROM table1, table2<br>WHERE table1.column1 &#x3D; table2.column2; #连接条件</p>
-</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> table1.column, table2.column</span><br><span class="line"><span class="keyword">FROM</span> table1, table2</span><br><span class="line"><span class="keyword">WHERE</span> table1.column1 <span class="operator">=</span> table2.column2; #连接条件</span><br></pre></td></tr></table></figure>
+
 <p>SQL99语法实现多表查询</p>
 <blockquote>
 <p>SELECT table1.column, table2.column,table3.column<br>FROM table1<br>    JOIN table2 ON table1 和 table2 的连接条件<br>        JOIN table3 ON table2 和 table3 的连接条件</p>
@@ -168,7 +167,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/07/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/" data-id="cm27q2slp000du0vb35e23ai8" data-title="05多表查询" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/07/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/" data-id="cm27ttbnf000d90vbh472e8zk" data-title="05多表查询" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -233,7 +232,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/06/%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%88%86%E9%A1%B5/" data-id="cm27q2slr000ku0vbaibx3ni6" data-title="04排序与分页" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/06/%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%88%86%E9%A1%B5/" data-id="cm27ttbnf000f90vbgjq02cn6" data-title="04排序与分页" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -447,7 +446,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/05/%E8%BF%90%E7%AE%97%E7%AC%A6/" data-id="cm27q2slr000nu0vbdbmj3o5l" data-title="03运算符" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/05/%E8%BF%90%E7%AE%97%E7%AC%A6/" data-id="cm27ttbnh000m90vbdzx0ako5" data-title="03运算符" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -510,7 +509,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/05/%E5%9F%BA%E6%9C%AC%E7%9A%84SELECT%E6%9F%A5%E8%AF%A2/" data-id="cm27q2slo000au0vb8naufcwu" data-title="02基本的SELECT查询" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/05/%E5%9F%BA%E6%9C%AC%E7%9A%84SELECT%E6%9F%A5%E8%AF%A2/" data-id="cm27ttbnd000890vb7ykfgimb" data-title="02基本的SELECT查询" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -570,7 +569,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/04/MySQL%E5%9F%BA%E7%A1%80%E5%86%85%E5%AE%B9/" data-id="cm27q2slm0003u0vbemwvb857" data-title="01MySQL基础内容" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/04/MySQL%E5%9F%BA%E7%A1%80%E5%86%85%E5%AE%B9/" data-id="cm27ttbn9000190vbfrnselhj" data-title="01MySQL基础内容" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -619,7 +618,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/03/%E5%91%BD%E4%BB%A4%E7%9A%84%E5%B8%AE%E5%8A%A9%E7%94%A8%E6%B3%95/" data-id="cm27q2slo0008u0vbf9xf391l" data-title="05命令的帮助用法" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/03/%E5%91%BD%E4%BB%A4%E7%9A%84%E5%B8%AE%E5%8A%A9%E7%94%A8%E6%B3%95/" data-id="cm27ttbne000a90vb6yd102bo" data-title="05命令的帮助用法" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -663,7 +662,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/03/%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" data-id="cm27q2slp000fu0vb5tvx4rud" data-title="04快捷键使用技巧" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/03/%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" data-id="cm27ttbnh000k90vbelg5f99q" data-title="04快捷键使用技巧" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -707,7 +706,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/02/%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7%E7%94%A8%E6%B3%95%E5%92%8C%E5%8C%BA%E5%88%AB/" data-id="cm27q2slq000iu0vb2k9w8ktn" data-title="04特殊符号用法和区别" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/02/%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7%E7%94%A8%E6%B3%95%E5%92%8C%E5%8C%BA%E5%88%AB/" data-id="cm27ttbng000i90vbaw8udsrp" data-title="04特殊符号用法和区别" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -762,7 +761,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/02/%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F%E8%AF%A6%E8%A7%A3/" data-id="cm27q2slm0004u0vb8k3pfn6j" data-title="03.命令格式详解" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/02/%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F%E8%AF%A6%E8%A7%A3/" data-id="cm27ttbnc000590vbhtn726vp" data-title="03.命令格式详解" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -825,7 +824,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/09/29/Linxu%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4%E8%BF%87%E7%A8%8B%E5%92%8C%E5%91%BD%E4%BB%A4%E7%B1%BB%E5%9E%8B/" data-id="cm27q2slk0001u0vbdc2zbfz5" data-title="02.Linxu执行命令过程和命令类型" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/09/29/Linxu%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4%E8%BF%87%E7%A8%8B%E5%92%8C%E5%91%BD%E4%BB%A4%E7%B1%BB%E5%9E%8B/" data-id="cm27ttbnb000390vb3qs2b6d7" data-title="02.Linxu执行命令过程和命令类型" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
