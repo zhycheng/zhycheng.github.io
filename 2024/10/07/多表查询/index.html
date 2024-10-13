@@ -15,7 +15,7 @@
 <meta property="og:locale">
 <meta property="og:image" content="https://zhycheng.github.io/images/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/image-20241011233800297.png">
 <meta property="article:published_time" content="2024-10-07T14:56:37.000Z">
-<meta property="article:modified_time" content="2024-10-13T17:05:50.244Z">
+<meta property="article:modified_time" content="2024-10-13T17:06:52.327Z">
 <meta property="article:author" content="zhycheng">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
@@ -68,10 +68,10 @@
         
           <a class="nav-icon" href="../../../../atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
         
-        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
       </div>
     </div>
   </div>
@@ -119,15 +119,15 @@
 <li>关键字 JOIN、INNER JOIN、CROSS JOIN 的含义是一样的，都表示内连接</li>
 </ul>
 <h4 id="内连接-INNER-JOIN-的实现"><a href="#内连接-INNER-JOIN-的实现" class="headerlink" title="内连接(INNER JOIN)的实现"></a>内连接(INNER JOIN)的实现</h4><p>语法</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT 字段列表</span><br><span class="line">FROM A表 INNER JOIN B表</span><br><span class="line">ON 关联条件</span><br><span class="line">WHERE 等其他子句;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> 字段列表</span><br><span class="line"><span class="keyword">FROM</span> A表 <span class="keyword">INNER</span> <span class="keyword">JOIN</span> B表</span><br><span class="line"><span class="keyword">ON</span> 关联条件</span><br><span class="line"><span class="keyword">WHERE</span> 等其他子句;</span><br></pre></td></tr></table></figure>
 
 <p>INNER 可以省略</p>
 <h4 id="外连接-OUTER-JOIN-的实现"><a href="#外连接-OUTER-JOIN-的实现" class="headerlink" title="外连接(OUTER JOIN)的实现"></a>外连接(OUTER JOIN)的实现</h4><h5 id="左外连接-LEFT-OUTER-JOIN"><a href="#左外连接-LEFT-OUTER-JOIN" class="headerlink" title="左外连接(LEFT OUTER JOIN)"></a>左外连接(LEFT OUTER JOIN)</h5><p>语法</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#实现查询结果是A</span><br><span class="line">SELECT 字段列表</span><br><span class="line">FROM A表 LEFT OUTER JOIN B表</span><br><span class="line">ON 关联条件</span><br><span class="line">WHERE 等其他子句;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#实现查询结果是A</span><br><span class="line"><span class="keyword">SELECT</span> 字段列表</span><br><span class="line"><span class="keyword">FROM</span> A表 <span class="keyword">LEFT</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> B表</span><br><span class="line"><span class="keyword">ON</span> 关联条件</span><br><span class="line"><span class="keyword">WHERE</span> 等其他子句;</span><br></pre></td></tr></table></figure>
 
 <p>OUTER 可以省略</p>
 <h5 id="右外连接-RIGHT-OUTER-JOIN"><a href="#右外连接-RIGHT-OUTER-JOIN" class="headerlink" title="右外连接(RIGHT OUTER JOIN)"></a>右外连接(RIGHT OUTER JOIN)</h5><p>语法</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FROM A表 RIGHT OUTER JOIN B表</span><br><span class="line">ON 关联条件</span><br><span class="line">WHERE 等其他子句;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> A表 <span class="keyword">RIGHT</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> B表</span><br><span class="line"><span class="keyword">ON</span> 关联条件</span><br><span class="line"><span class="keyword">WHERE</span> 等其他子句;</span><br></pre></td></tr></table></figure>
 
 <p>OUTER可以省略</p>
 <h5 id="满外连接-FULL-OUTER-JOIN"><a href="#满外连接-FULL-OUTER-JOIN" class="headerlink" title="满外连接(FULL OUTER JOIN)"></a>满外连接(FULL OUTER JOIN)</h5><blockquote>
@@ -139,7 +139,7 @@
 </blockquote>
 <h4 id="UNION的使用"><a href="#UNION的使用" class="headerlink" title="UNION的使用"></a>UNION的使用</h4><p><font color=Red>合并查询结果</font> 利用UNION关键字，可以给出多条SELECT语句，并将它们的结果组合成单个结果集。合并<br>时，两个表对应的列数和数据类型必须相同，并且相互对应。各个SELECT语句之间使用UNION或UNION<br>ALL关键字分隔。</p>
 <p>语法格式：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT column,... FROM table1</span><br><span class="line">UNION [ALL]</span><br><span class="line">SELECT column,... FROM table2</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">column</span>,... <span class="keyword">FROM</span> table1</span><br><span class="line"><span class="keyword">UNION</span> [<span class="keyword">ALL</span>]</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">column</span>,... <span class="keyword">FROM</span> table2</span><br></pre></td></tr></table></figure>
 
 <p><font color=red>UNION操作符</font><br>UNION 操作符返回两个查询的结果集的并集，去除重复记录。</p>
 <p><font color=red>UNION ALL操作符</font><br>UNION ALL操作符返回两个查询的结果集的并集。对于两个结果集的重复部分，不去重。</p>
@@ -148,25 +148,25 @@
 </blockquote>
 <h4 id="7种SQL-JOINS的实现"><a href="#7种SQL-JOINS的实现" class="headerlink" title="7种SQL JOINS的实现"></a>7种SQL JOINS的实现</h4><p><img src="https://zhycheng.github.io/images/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/image-20241011233800297.png"></p>
 <h4 id="SQL99语法新特性"><a href="#SQL99语法新特性" class="headerlink" title="SQL99语法新特性"></a>SQL99语法新特性</h4><h5 id="自然连接"><a href="#自然连接" class="headerlink" title="自然连接"></a>自然连接</h5><p>SQL99 在 SQL92 的基础上提供了一些特殊语法，比如 NATURAL JOIN 用来表示自然连接。我们可以把<br>自然连接理解为 SQL92 中的等值连接。它会帮你自动查询两张连接表中所有相同的字段，然后进行等值<br>连接。<br>在SQL92标准中：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT employee_id,last_name,department_name</span><br><span class="line">FROM employees e JOIN departments d</span><br><span class="line">ON e.`department_id` = d.`department_id`</span><br><span class="line">AND e.`manager_id` = d.`manager_id`;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> employee_id,last_name,department_name</span><br><span class="line"><span class="keyword">FROM</span> employees e <span class="keyword">JOIN</span> departments d</span><br><span class="line"><span class="keyword">ON</span> e.`department_id` <span class="operator">=</span> d.`department_id`</span><br><span class="line"><span class="keyword">AND</span> e.`manager_id` <span class="operator">=</span> d.`manager_id`;</span><br></pre></td></tr></table></figure>
 
 <p>在 SQL99 中你可以写成：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT employee_id,last_name,department_name</span><br><span class="line">FROM employees e NATURAL JOIN departments d;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> employee_id,last_name,department_name</span><br><span class="line"><span class="keyword">FROM</span> employees e <span class="keyword">NATURAL</span> <span class="keyword">JOIN</span> departments d;</span><br></pre></td></tr></table></figure>
 
 
 
 <h5 id="USING连接"><a href="#USING连接" class="headerlink" title="USING连接"></a>USING连接</h5><p>当我们进行连接的时候，SQL99还支持使用 USING 指定数据表里的同名字段进行等值连接。但是只能配<br>合JOIN一起使用。比如：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT employee_id,last_name,department_name</span><br><span class="line">FROM employees e JOIN departments d</span><br><span class="line">USING (department_id);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> employee_id,last_name,department_name</span><br><span class="line"><span class="keyword">FROM</span> employees e <span class="keyword">JOIN</span> departments d</span><br><span class="line"><span class="keyword">USING</span> (department_id);</span><br></pre></td></tr></table></figure>
 
 <p>你能看出与自然连接 NATURAL JOIN 不同的是，USING 指定了具体的相同的字段名称，你需要在 USING<br>的括号 () 中填入要指定的同名字段。同时使用 JOIN…USING 可以简化 JOIN ON 的等值连接。它与下<br>面的 SQL 查询结果是相同的：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT employee_id,last_name,department_name</span><br><span class="line">FROM employees e ,departments d</span><br><span class="line">WHERE e.department_id = d.department_id;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> employee_id,last_name,department_name</span><br><span class="line"><span class="keyword">FROM</span> employees e ,departments d</span><br><span class="line"><span class="keyword">WHERE</span> e.department_id <span class="operator">=</span> d.department_id;</span><br></pre></td></tr></table></figure>
 
 <p><font color=red>自然连接和USING连接了解即可，比较受局限</font></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/07/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/" data-id="cm27u72lb0008cgvbfymmbxlo" data-title="05多表查询" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/10/07/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/" data-id="cm27u8fk3000dqsvbddlpaion" data-title="05多表查询" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -180,7 +180,7 @@
   
   
     <a href="../../06/%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%88%86%E9%A1%B5/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">Älter</strong>
       <div class="article-nav-title">04排序与分页</div>
     </a>
   
@@ -218,7 +218,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2024/08/">August 2024</a></li></ul>
     </div>
@@ -228,7 +228,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
         
