@@ -129,9 +129,9 @@
 <p>OUTER可以省略</p>
 <h5 id="满外连接-FULL-OUTER-JOIN"><a href="#满外连接-FULL-OUTER-JOIN" class="headerlink" title="满外连接(FULL OUTER JOIN)"></a>满外连接(FULL OUTER JOIN)</h5><blockquote>
 <ul>
-<li>满外连接的结果 &#x3D; 左右表匹配的数据 + 左表没有匹配到的数据 + 右表没有匹配到的数据</li>
-<li>SQL99是支持满外连接的。使用FULL JOIN 或 FULL OUTER JOIN来实现</li>
-<li>需要注意的是，MySQL不支持FULL JOIN，但是可以用 LEFT JOIN UNION RIGHT join代替。</li>
+<li><p align="left">满外连接的结果 = 左右表匹配的数据 + 左表没有匹配到的数据 + 右表没有匹配到的数据</p></li>
+<li><p align="left">SQL99是支持满外连接的。使用FULL JOIN 或 FULL OUTER JOIN来实现</p></li>
+<li><p align="left">需要注意的是，MySQL不支持FULL JOIN，但是可以用 LEFT JOIN UNION RIGHT join代替。</p></li>
 </ul>
 </blockquote>
 <h4 id="UNION的使用"><a href="#UNION的使用" class="headerlink" title="UNION的使用"></a>UNION的使用</h4><p><font color=Red>合并查询结果</font> 利用UNION关键字，可以给出多条SELECT语句，并将它们的结果组合成单个结果集。合并<br>时，两个表对应的列数和数据类型必须相同，并且相互对应。各个SELECT语句之间使用UNION或UNION<br>ALL关键字分隔。</p>
@@ -141,7 +141,9 @@
 <p><font color=red>UNION操作符</font><br>UNION 操作符返回两个查询的结果集的并集，去除重复记录。</p>
 <p><font color=red>UNION ALL操作符</font><br>UNION ALL操作符返回两个查询的结果集的并集。对于两个结果集的重复部分，不去重。</p>
 <blockquote>
-<p>注意：执行UNION ALL语句时所需要的资源比UNION语句少。如果明确知道合并数据后的结果数据<br>不存在重复数据，或者不需要去除重复的数据，则尽量使用UNION ALL语句，以提高数据查询的效<br>率。</p>
+<p align="left">注意：执行UNION ALL语句时所需要的资源比UNION语句少。如果明确知道合并数据后的结果数据</p>
+<p align="left">不存在重复数据，或者不需要去除重复的数据，则尽量使用UNION ALL语句，以提高数据查询的效</p>
+<p align="left">率。</p>
 </blockquote>
 <h4 id="7种SQL-JOINS的实现"><a href="#7种SQL-JOINS的实现" class="headerlink" title="7种SQL JOINS的实现"></a>7种SQL JOINS的实现</h4><p><img src="https://zhycheng.github.io/images/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/image-20241011233800297.png"></p>
 <h4 id="SQL99语法新特性"><a href="#SQL99语法新特性" class="headerlink" title="SQL99语法新特性"></a>SQL99语法新特性</h4><h5 id="自然连接"><a href="#自然连接" class="headerlink" title="自然连接"></a>自然连接</h5><p>SQL99 在 SQL92 的基础上提供了一些特殊语法，比如 NATURAL JOIN 用来表示自然连接。我们可以把<br>自然连接理解为 SQL92 中的等值连接。它会帮你自动查询两张连接表中所有相同的字段，然后进行等值<br>连接。<br>在SQL92标准中：</p>
@@ -163,7 +165,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/07/MySQL/05.%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/" data-id="cm27uixth000nvkvb7fob2wgz" data-title="05多表查询" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/07/MySQL/05.%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/" data-id="cm2sp9num000jbwvb65au2yl7" data-title="05多表查询" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -208,19 +210,18 @@
 <li>ORDER BY 子句在SELECT语句的结尾。</li>
 <li>排序默认升序</li>
 </ul>
-<h4 id="2-多列排序"><a href="#2-多列排序" class="headerlink" title="2.多列排序"></a>2.多列排序</h4><blockquote>
-<p>SELECT last_name, department_id, salary<br>FROM employees<br>ORDER BY department_id ASC, salary DESC;</p>
-</blockquote>
+<h4 id="2-多列排序"><a href="#2-多列排序" class="headerlink" title="2.多列排序"></a>2.多列排序</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> department_id <span class="keyword">ASC</span>, salary <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+
 <h2 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h2><h4 id="1-实现规则"><a href="#1-实现规则" class="headerlink" title="1.实现规则"></a>1.实现规则</h4><ul>
 <li><p>分页原理 所谓分页显示，就是将数据库中的结果集，一段一段显示出来需要的条件。</p>
 </li>
 <li><p><font color = red> MySQL</font>中使用 LIMIT 实现分页</p>
 </li>
-<li><p>格式：</p>
-<blockquote>
-<p>LIMIT [位置偏移量,] 行数</p>
-<p>第一个“位置偏移量”参数指示MySQL从哪一行开始显示，是一个可选参数，如果不指定“位置偏移<br>量”，将会从表中的第一条记录开始（第一条记录的位置偏移量是0，第二条记录的位置偏移量是<br>1，以此类推）；第二个参数“行数”指示返回的记录条数。</p>
-</blockquote>
+<li><p>格式：<br>LIMIT [位置偏移量,] 行数</p>
+<ul>
+<li>行第一个“位置偏移量”参数指示MySQL从哪一行开始显示，是一个可选参数，如果不指定“位置量”，将会从表中的第一条记录开始（第一条记录的位置偏移量是0，第二条记录的位置偏移 1，以此类推）；</li>
+<li>第二个参数“行数”指示返回的记录条数。</li>
+</ul>
 </li>
 </ul>
 <p>&#x3D;&#x3D;注意：LIMIT 子句必须放在整个SELECT语句的最后！&#x3D;&#x3D;</p>
@@ -228,7 +229,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/06/MySQL/04.%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%88%86%E9%A1%B5/" data-id="cm27uixtg000ivkvbg1yrd9zk" data-title="04排序与分页" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/06/MySQL/04.%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%88%86%E9%A1%B5/" data-id="cm2sp9num000hbwvb0ed4cjgr" data-title="04排序与分页" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -380,69 +381,55 @@
 </tr>
 </tbody></table>
 <blockquote>
-<p>（1）‘^’匹配以该字符后面的字符开头的字符串。</p>
-<p>（2）‘$’匹配以该字符前面的字符结尾的字符串。</p>
-<p>（3）‘.’匹配任何一个单字符。</p>
-<p>（4）“[…]”匹配在方括号内的任何字符。例如，“[abc]”匹配“a”或“b”或“c”。为了命名字符的范围，使用一<br>    个‘-’。“[a-z]”匹配任何字母，而“[0-9]”匹配任何数字。</p>
-<p>（5）‘*’匹配零个或多个在它前面的字符。例如，“x*”匹配任何数量的‘x’字符，“[0-9]<em>”匹配任何数量的数字，</em><br>    而“*”匹配任何数量的任何字符。</p>
+<p align="left">（1）‘^’匹配以该字符后面的字符开头的字符串。</p>
+
+<p align="left">（2）‘$’匹配以该字符前面的字符结尾的字符串。</p>
+
+<p align="left">（3）‘.’匹配任何一个单字符。</p>
+
+<p align="left">（4）“[...]”匹配在方括号内的任何字符。例如，“[abc]”匹配“a”或“b”或“c”。为了命名字符的范围，使用一个‘-’。“[a-z]”匹配任何字母，而“[0-9]”匹配任何数字。</p>
+
+<p align="left">（5）‘*’匹配零个或多个在它前面的字符。例如，“x*”匹配任何数量的‘x’字符，“[0-9]*”匹配任何数量的数字，而“*”匹配任何数量的任何字符。</p>
 </blockquote>
 <h3 id="拓展：使用正则表达式查询"><a href="#拓展：使用正则表达式查询" class="headerlink" title="拓展：使用正则表达式查询"></a><strong>拓展：使用正则表达式查询</strong></h3><hr>
 <p>正则表达式通常被用来检索或替换那些符合某个模式的文本内容，根据指定的匹配模式匹配文本中符合<br>要求的特殊字符串。例如，从一个文本文件中提取电话号码，查找一篇文章中重复的单词或者替换用户<br>输入的某些敏感词语等，这些地方都可以使用正则表达式。正则表达式强大而且灵活，可以应用于非常<br>复杂的查询。</p>
 <p>MySQL中使用REGEXP关键字指定正则表达式的字符匹配模式。下表列出了REGEXP操作符中常用字符匹配<br>列表。</p>
 <p><img src="https://zhycheng.github.io/images/%E8%BF%90%E7%AE%97%E7%AC%A6/image-20241006013006701.png"></p>
 <ol>
-<li><strong>查询以特定字符或字符串开头的记录</strong> 字符‘^’匹配以特定字符或者字符串开头的文本。<br>在employees表中，查询first_name字段以字母‘D’开头的记录，SQL语句如下：</li>
-</ol>
-<blockquote>
-<p>SELECT * FROM employees WHERE first_name REGEXP ‘^D’;</p>
-</blockquote>
-<ol start="2">
-<li><strong>查询以特定字符或字符串结尾的记录</strong> 字符‘$’匹配以特定字符或者字符串结尾的文本。<br>在employees表中，查询first_name字段以字母‘D’结尾的记录，SQL语句如下：</li>
-</ol>
-<blockquote>
-<p>SELECT * FROM employees WHERE first_name RLIKE ‘D$’;</p>
-</blockquote>
-<ol start="3">
-<li><strong>用符号”.”来替代字符串中的任意一个字符</strong> 字符‘.’匹配任意一个字符。 在employees表中，查询first_name字段值<br>包含字母‘v’与‘l’且两个字母之间只有一个字母的记录，SQL语句如下：</li>
-</ol>
-<blockquote>
-<p>SELECT * FROM employees WHERE first_name RLIKE ‘v.l’;</p>
-</blockquote>
-<ol start="4">
-<li><strong>使用”*”和”+”来匹配多个字符</strong> 星号‘*’匹配前面的字符任意多次，包括0次。加号‘+’匹配前面的字符至<br> 少一次。<br> 在employees表中查找first_name中包含a 0次及以上的，其实会返回全部<br> 在employees表中查找first_name中包含a 1次及以上的，返回至少包含一个a的</li>
-</ol>
-<blockquote>
-<p>SELECT * FROM employees WHERE first_name RLIKE ‘a*’;<br>SELECT * FROM employees WHERE first_name RLIKE ‘a+’;</p>
-</blockquote>
-<ol start="5">
+<li><p><strong>查询以特定字符或字符串开头的记录</strong> 字符‘^’匹配以特定字符或者字符串开头的文本。<br> 在employees表中，查询first_name字段以字母‘D’开头的记录，SQL语句如下：</p>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> employees <span class="keyword">WHERE</span> first_name REGEXP <span class="string">&#x27;^D&#x27;</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>查询以特定字符或字符串结尾的记录</strong> 字符‘$’匹配以特定字符或者字符串结尾的文本。<br>  在employees表中，查询first_name字段以字母‘D’结尾的记录，SQL语句如下：</p>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> employees <span class="keyword">WHERE</span> first_name RLIKE <span class="string">&#x27;D$&#x27;</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>用符号”.”来替代字符串中的任意一个字符</strong> 字符‘.’匹配任意一个字符。 在employees表中，查询first_name字段值<br>  包含字母‘v’与‘l’且两个字母之间只有一个字母的记录，SQL语句如下：</p>
+   <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> employees <span class="keyword">WHERE</span> first_name RLIKE <span class="string">&#x27;v.l&#x27;</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>使用”*”和”+”来匹配多个字符</strong> 星号‘*’匹配前面的字符任意多次，包括0次。加号‘+’匹配前面的字符至<br> 少一次。<br> 在employees表中查找first_name中包含a 0次及以上的，其实会返回全部<br> 在employees表中查找first_name中包含a 1次及以上的，返回至少包含一个a的</p>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> employees <span class="keyword">WHERE</span> first_name RLIKE <span class="string">&#x27;a*&#x27;</span>;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> employees <span class="keyword">WHERE</span> first_name RLIKE <span class="string">&#x27;a+&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p> <code>  </code></p>
+</li>
 <li><p><strong>匹配指定字符串</strong> 正则表达式可以匹配指定字符串，只要这个字符串在查询文本中即可，如要匹配多个</p>
 <p>字符串，多个字符串之间使用分隔符‘|’隔开。<br>在employees表中查找包含ay或者hn的</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> employees <span class="keyword">WHERE</span> first_name REGEXP <span class="string">&#x27;ay|hn&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+
 </li>
-</ol>
-<blockquote>
-<p>SELECT * FROM employees WHERE first_name REGEXP ‘ay|hn’;</p>
-</blockquote>
-<ol start="6">
-<li><strong>匹配指定字符中的任意一个</strong> 方括号“[]”指定一个字符集合，只匹配其中任何一个字符，即为所查找的<br> 文本。<br> 在employees表中查找包含a,n,k的</li>
-</ol>
-<blockquote>
-<p>SELECT * FROM employees WHERE first_name REGEXP ‘[ank]’;</p>
-</blockquote>
-<ol start="7">
+<li><p><strong>匹配指定字符中的任意一个</strong> 方括号“[]”指定一个字符集合，只匹配其中任何一个字符，即为所查找的<br> 文本。<br> 在employees表中查找包含a,n,k的</p>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> employees <span class="keyword">WHERE</span> first_name REGEXP <span class="string">&#x27;[ank]&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+</li>
 <li><p><del>匹配指定字符以外的字符 “[^字符集合]” 匹配不在指定集合中的任何字符。<br>在employees表中查找不包含 a,n,k的字符</del></p>
 </li>
-<li><p><strong>使用{n,}或者{n,m}来指定字符串连续出现的次数</strong> “字符串{n,}”表示至少匹配n次前面的字符；“字符串<br>{n,m}”表示匹配前面的字符串不少于n次，不多于m次。例如，a{2,}表示字母a连续出现至少2次，也可以<br>大于2次；a{2,4}表示字母a连续出现最少2次，最多不能超过4次。</p>
-</li>
+<li><p><strong>使用{n,}或者{n,m}来指定字符串连续出现的次数</strong> “字符串{n,}”表示至少匹配n次前面的字符；“字符串<br>  {n,m}”表示匹配前面的字符串不少于n次，不多于m次。例如，a{2,}表示字母a连续出现至少2次，也可以<br>大于2次；a{2,4}表示字母a连续出现最少2次，最多不能超过4次。</p>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> employees <span class="keyword">WHERE</span> first_name REGEXP <span class="string">&#x27;n&#123;2,4&#125;&#x27;</span>;</span><br></pre></td></tr></table></figure></li>
 </ol>
-<blockquote>
-<p>SELECT * FROM employees WHERE first_name REGEXP ‘n{2,4}’;</p>
-</blockquote>
 <h4 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h4><p>AND的优先级高于OR<br>异或XOR 相异为真，相同为假</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/05/MySQL/03.%E8%BF%90%E7%AE%97%E7%AC%A6/" data-id="cm27uixtg000kvkvbate225a4" data-title="03运算符" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/05/MySQL/03.%E8%BF%90%E7%AE%97%E7%AC%A6/" data-id="cm2sp9nun000lbwvb7p9y4inr" data-title="03运算符" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -478,34 +465,45 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h4 id="基本的查询"><a href="#基本的查询" class="headerlink" title="基本的查询"></a>基本的查询</h4><p>SELECT 1</p>
-<p>SELECT …FROM…</p>
-<p>SELECT employee_id,first_name,last_name FROM employees;</p>
+        <h4 id="基本的查询"><a href="#基本的查询" class="headerlink" title="基本的查询"></a>基本的查询</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">SELECT</span> ...FROM...</span><br><span class="line"><span class="keyword">SELECT</span> employee_id,first_name,last_name <span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+
+
+
 <h4 id="别名"><a href="#别名" class="headerlink" title="别名"></a>别名</h4><p>紧跟列名，也可以<strong>在列名和别名之间加入关键字AS，别名使用双引号</strong>，以便在别名中包含空格或特殊的字符并区分大小写。AS可以省略。也可以不加双引号。</p>
-<p>SELECT employee_id  ID,first_name AS 姓,last_name 名字, salary*12 as “Anual Salary” FROM employees;</p>
-<h4 id="去除重复行"><a href="#去除重复行" class="headerlink" title="去除重复行"></a>去除重复行</h4><p>SELECT DISTINCT department_id FROM employees;</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> employee_id  ID,first_name <span class="keyword">AS</span> 姓,last_name 名字, salary<span class="operator">*</span><span class="number">12</span> <span class="keyword">as</span> &quot;Anual Salary&quot; <span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="去除重复行"><a href="#去除重复行" class="headerlink" title="去除重复行"></a>去除重复行</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> department_id <span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+
+
+
 <p><strong>空值参与运算</strong></p>
 <p>所有运算符或列值遇到null值，运算的结果都为null</p>
-<p>SELECT employee_id,salary,commission_pct, salary*(1+commission_pct)*12 as “年工资” FROM employees;</p>
-<p>SELECT employee_id,salary,commission_pct, salary*(1+IFNULL(commission_pct,0))*12 as “年工资” FROM employees;</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> employee_id,salary,commission_pct, salary<span class="operator">*</span>(<span class="number">1</span><span class="operator">+</span>commission_pct)<span class="operator">*</span><span class="number">12</span> <span class="keyword">as</span> &quot;年工资&quot; <span class="keyword">FROM</span> employees;</span><br><span class="line"><span class="keyword">SELECT</span> employee_id,salary,commission_pct, salary<span class="operator">*</span>(<span class="number">1</span><span class="operator">+</span>IFNULL(commission_pct,<span class="number">0</span>))<span class="operator">*</span><span class="number">12</span> <span class="keyword">as</span> &quot;年工资&quot; <span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+
 <p>IFNULL如果为空就为后面的值，不为空那就是原来的值</p>
 <p><strong>着重号</strong></p>
 <p>我们需要保证表中的字段、表名等没有和保留字、数据库系统或常用方法冲突。如果真的相同，请在SQL语句中使用一对&#96;&#96;（着重号）引起来。</p>
 <p><strong>查询常数</strong></p>
 <p>SELECT 查询还可以对常数进行查询。对的，就是在 SELECT 查询结果中增加一列固定的常数列。这列的</p>
-<p>取值是我们指定的，而不是从数据表中动态取出的。<br>SELECT ‘湖北省’,42,employee_id,first_name,last_name from employees;</p>
+<p>取值是我们指定的，而不是从数据表中动态取出的。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="string">&#x27;湖北省&#x27;</span>,<span class="number">42</span>,employee_id,first_name,last_name <span class="keyword">from</span> employees;</span><br></pre></td></tr></table></figure>
+
+
+
 <p><strong>显示表结构</strong></p>
 <p>使用DESCRIBE 或 DESC 命令，表示表结构。</p>
 <p><strong>过滤数据</strong></p>
-<p>SELECT * FROM employees where department_id&#x3D;90;<br>SELECT * FROM employees WHERE last_name&#x3D;’King’;</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> employees <span class="keyword">where</span> department_id<span class="operator">=</span><span class="number">90</span>;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> employees <span class="keyword">WHERE</span> last_name<span class="operator">=</span><span class="string">&#x27;King&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<p>MySQL大小写不敏感，King用小写king也能查出来</p>
-</blockquote>
+<p align="left">MySQL大小写不敏感，King用小写king也能查出来</p></blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/05/MySQL/02%E5%9F%BA%E6%9C%AC%E7%9A%84SELECT%E6%9F%A5%E8%AF%A2/" data-id="cm27uixte000fvkvbbb7v2zrk" data-title="02基本的SELECT查询" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/05/MySQL/02%E5%9F%BA%E6%9C%AC%E7%9A%84SELECT%E6%9F%A5%E8%AF%A2/" data-id="cm2sp9nul000cbwvb5dm9al1f" data-title="02基本的SELECT查询" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -545,18 +543,18 @@
 <p>登录之后的操作<br>alter user ‘root‘@’localhost’ identified by ‘newpassword’;  修改root密码<br>show databases;  查看数据库<br>create database dbtest1;  创建数据库<br>use dbtest1;  选择使用某个数据库<br>create table employees(id int,name varchar(15));  &#x2F;&#x2F;创建数据库<br>show create table employees;  &#x2F;&#x2F;显示建表语句<br>show create database dbtest1;&#x2F;&#x2F;显示建数据库语句<br>show variables like ‘character_%’;<br>drop database dbtest1;删掉数据库</p>
 <h4 id="SQL分类"><a href="#SQL分类" class="headerlink" title="SQL分类"></a>SQL分类</h4><p>DDL（Data Definition Languages 、数据定义语言）这些语句定义了不同的数据库、表、视图、索引等数据库对象，还可以用来创建，删除，修改数据库和数据表的结构。</p>
 <blockquote>
-<p>主要的语句关键字包括CREATE、DROP、ALTER等。</p>
+<p align="left">主要的语句关键字包括CREATE、DROP、ALTER等。</p>
 </blockquote>
 <p>DML（Data Manipulation Language、数据操作语言）用于添加、删除、更新和查询数据库记录，并检查数据完整性。</p>
 <blockquote>
 <ul>
-<li>主要的语句关键字包括 INSERT、DELETE、UPDATE、SELECT等。</li>
-<li>SELECT是SQL语言的基础，最为重要</li>
+<li><p align="left">主要的语句关键字包括 INSERT、DELETE、UPDATE、SELECT等。</p></li>
+<li><p align="left">SELECT是SQL语言的基础，最为重要 </p></li>
 </ul>
 </blockquote>
 <p>DCL（Data Control Language、数据控制语言）用于定义数据库、表、字段、用户的访问权限的安全级别。</p>
 <blockquote>
-<p>主要的语句关键字包括GRANT、REVOKE、COMMIT、ROLLBACK、SAVEPOINT等。</p>
+<p align="left">主要的语句关键字包括GRANT、REVOKE、COMMIT、ROLLBACK、SAVEPOINT等。</p>
 </blockquote>
 <h4 id="建议规范"><a href="#建议规范" class="headerlink" title="建议规范"></a>建议规范</h4><p>数据库名，表明，字段名都用小写<br>关键字，函数名 用大写</p>
 <h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h4><p>– 单行注释<br>&#x2F;# 单行注释<br>&#x2F;*  *&#x2F;  多行注释，不支持嵌套 </p>
@@ -565,7 +563,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/04/MySQL/01.MySQL%E5%9F%BA%E7%A1%80%E5%86%85%E5%AE%B9/" data-id="cm27uixtc000avkvb7vpj5dy9" data-title="01MySQL基础内容" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/04/MySQL/01.MySQL%E5%9F%BA%E7%A1%80%E5%86%85%E5%AE%B9/" data-id="cm2sp9nul000ebwvb4xhs0zxf" data-title="01MySQL基础内容" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -614,7 +612,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/03/Linux/06.%E5%91%BD%E4%BB%A4%E7%9A%84%E5%B8%AE%E5%8A%A9%E7%94%A8%E6%B3%95/" data-id="cm27uixte000dvkvb2vso6kbn" data-title="06命令的帮助用法" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/03/Linux/06.%E5%91%BD%E4%BB%A4%E7%9A%84%E5%B8%AE%E5%8A%A9%E7%94%A8%E6%B3%95/" data-id="cm2sp9nuj0008bwvbfweo4k04" data-title="06命令的帮助用法" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -658,7 +656,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/03/Linux/05.%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" data-id="cm27uixtc0008vkvbgble73el" data-title="05快捷键使用技巧" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/03/Linux/05.%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" data-id="cm2sp9nui0005bwvb2weob994" data-title="05快捷键使用技巧" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -702,7 +700,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/02/Linux/04.%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7%E7%94%A8%E6%B3%95%E5%92%8C%E5%8C%BA%E5%88%AB/" data-id="cm27uixta0004vkvb4swrckni" data-title="04特殊符号用法和区别" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/02/Linux/04.%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7%E7%94%A8%E6%B3%95%E5%92%8C%E5%8C%BA%E5%88%AB/" data-id="cm2sp9nui0004bwvb4vdzedgf" data-title="04特殊符号用法和区别" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -747,17 +745,18 @@
 <p>参数：命令的作用对向，比如：文件名，用户名等</p>
 <blockquote>
 <ul>
-<li>多个选项以及参数和命令之间使用空白字符分隔</li>
-<li>强行退出 CTRL+C<br>正常退出 CTRL+D</li>
-<li>多个命令可以使用”;”符号分开</li>
-<li>一个命令可以用\分成多行</li>
+<li><p align="left">多个选项以及参数和命令之间使用空白字符分隔</p></li>
+<li><p align="left">强行退出 CTRL+C</p>
+<p align="left">正常退出 CTRL+D</p></li>
+<li><p align="left">多个命令可以使用";"符号分开</p></li>
+<li><p align="left">一个命令可以用\分成多行</p></li>
 </ul>
 </blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/02/Linux/03.%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F%E8%AF%A6%E8%A7%A3/" data-id="cm27uixtb0005vkvb5u5k05xp" data-title="03.命令格式详解" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/02/Linux/03.%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F%E8%AF%A6%E8%A7%A3/" data-id="cm2sp9nuh0003bwvbdfahewzo" data-title="03.命令格式详解" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -795,19 +794,19 @@
       
         <p>type 查看命令类型，是buildin还是外部命令</p>
 <blockquote>
-<p>type -a 命令名  查看所有的</p>
+<p align="left">type -a 命令名  查看所有的</p>
 </blockquote>
 <p>hash 查看缓存了的命令<br>hash -r 清空缓存</p>
 <p>help和enbale 显示所有内部命令</p>
 <blockquote>
 <ul>
-<li><p>enable cmd 启用内部命令</p>
+<li><p align="left">enable cmd 启用内部命令</p>
 </li>
-<li><p>enable -n cmd 禁用内部命令</p>
+<li><p align="left">enable -n cmd 禁用内部命令</p>
 </li>
-<li><p>enable -n 查看所有禁用的内部命令</p>
-<p>以上临时禁用重启失效</p>
-</li>
+<li><p align="left">enable -n 查看所有禁用的内部命令</p>
+
+<p align="left">以上临时禁用重启失效</p></li>
 </ul>
 </blockquote>
 <p>which 查看外部命令的路径<br>whereis 除了查看外部命令的路径，还能显示帮助文档路径</p>
@@ -820,7 +819,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/09/29/Linux/02.Linxu%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4%E8%BF%87%E7%A8%8B%E5%92%8C%E5%91%BD%E4%BB%A4%E7%B1%BB%E5%9E%8B/" data-id="cm27uixta0003vkvbd5v6cvmx" data-title="02.Linxu执行命令过程和命令类型" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/09/29/Linux/02.Linxu%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4%E8%BF%87%E7%A8%8B%E5%92%8C%E5%91%BD%E4%BB%A4%E7%B1%BB%E5%9E%8B/" data-id="cm2sp9nuf0001bwvb7ulxfpxc" data-title="02.Linxu执行命令过程和命令类型" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       

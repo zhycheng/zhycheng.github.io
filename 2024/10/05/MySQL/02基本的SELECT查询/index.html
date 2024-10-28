@@ -6,15 +6,15 @@
   
   <title>02基本的SELECT查询 | zhycheng‘s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="基本的查询SELECT 1 SELECT …FROM… SELECT employee_id,first_name,last_name FROM employees; 别名紧跟列名，也可以在列名和别名之间加入关键字AS，别名使用双引号，以便在别名中包含空格或特殊的字符并区分大小写。AS可以省略。也可以不加双引号。 SELECT employee_id  ID,first_name AS 姓,las">
+  <meta name="description" content="基本的查询123SELECT 1SELECT ...FROM...SELECT employee_id,first_name,last_name FROM employees;    别名紧跟列名，也可以在列名和别名之间加入关键字AS，别名使用双引号，以便在别名中包含空格或特殊的字符并区分大小写。AS可以省略。也可以不加双引号。 1SELECT employee_id  ID,first_name">
 <meta property="og:type" content="article">
 <meta property="og:title" content="02基本的SELECT查询">
 <meta property="og:url" content="http://example.com/2024/10/05/MySQL/02%E5%9F%BA%E6%9C%AC%E7%9A%84SELECT%E6%9F%A5%E8%AF%A2/index.html">
 <meta property="og:site_name" content="zhycheng‘s blog">
-<meta property="og:description" content="基本的查询SELECT 1 SELECT …FROM… SELECT employee_id,first_name,last_name FROM employees; 别名紧跟列名，也可以在列名和别名之间加入关键字AS，别名使用双引号，以便在别名中包含空格或特殊的字符并区分大小写。AS可以省略。也可以不加双引号。 SELECT employee_id  ID,first_name AS 姓,las">
+<meta property="og:description" content="基本的查询123SELECT 1SELECT ...FROM...SELECT employee_id,first_name,last_name FROM employees;    别名紧跟列名，也可以在列名和别名之间加入关键字AS，别名使用双引号，以便在别名中包含空格或特殊的字符并区分大小写。AS可以省略。也可以不加双引号。 1SELECT employee_id  ID,first_name">
 <meta property="og:locale">
 <meta property="article:published_time" content="2024-10-05T03:46:06.000Z">
-<meta property="article:modified_time" content="2024-10-05T14:33:40.313Z">
+<meta property="article:modified_time" content="2024-10-28T07:20:55.842Z">
 <meta property="article:author" content="zhycheng">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
@@ -98,34 +98,45 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h4 id="基本的查询"><a href="#基本的查询" class="headerlink" title="基本的查询"></a>基本的查询</h4><p>SELECT 1</p>
-<p>SELECT …FROM…</p>
-<p>SELECT employee_id,first_name,last_name FROM employees;</p>
+        <h4 id="基本的查询"><a href="#基本的查询" class="headerlink" title="基本的查询"></a>基本的查询</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">SELECT</span> ...FROM...</span><br><span class="line"><span class="keyword">SELECT</span> employee_id,first_name,last_name <span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+
+
+
 <h4 id="别名"><a href="#别名" class="headerlink" title="别名"></a>别名</h4><p>紧跟列名，也可以<strong>在列名和别名之间加入关键字AS，别名使用双引号</strong>，以便在别名中包含空格或特殊的字符并区分大小写。AS可以省略。也可以不加双引号。</p>
-<p>SELECT employee_id  ID,first_name AS 姓,last_name 名字, salary*12 as “Anual Salary” FROM employees;</p>
-<h4 id="去除重复行"><a href="#去除重复行" class="headerlink" title="去除重复行"></a>去除重复行</h4><p>SELECT DISTINCT department_id FROM employees;</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> employee_id  ID,first_name <span class="keyword">AS</span> 姓,last_name 名字, salary<span class="operator">*</span><span class="number">12</span> <span class="keyword">as</span> &quot;Anual Salary&quot; <span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="去除重复行"><a href="#去除重复行" class="headerlink" title="去除重复行"></a>去除重复行</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> department_id <span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+
+
+
 <p><strong>空值参与运算</strong></p>
 <p>所有运算符或列值遇到null值，运算的结果都为null</p>
-<p>SELECT employee_id,salary,commission_pct, salary*(1+commission_pct)*12 as “年工资” FROM employees;</p>
-<p>SELECT employee_id,salary,commission_pct, salary*(1+IFNULL(commission_pct,0))*12 as “年工资” FROM employees;</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> employee_id,salary,commission_pct, salary<span class="operator">*</span>(<span class="number">1</span><span class="operator">+</span>commission_pct)<span class="operator">*</span><span class="number">12</span> <span class="keyword">as</span> &quot;年工资&quot; <span class="keyword">FROM</span> employees;</span><br><span class="line"><span class="keyword">SELECT</span> employee_id,salary,commission_pct, salary<span class="operator">*</span>(<span class="number">1</span><span class="operator">+</span>IFNULL(commission_pct,<span class="number">0</span>))<span class="operator">*</span><span class="number">12</span> <span class="keyword">as</span> &quot;年工资&quot; <span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+
 <p>IFNULL如果为空就为后面的值，不为空那就是原来的值</p>
 <p><strong>着重号</strong></p>
 <p>我们需要保证表中的字段、表名等没有和保留字、数据库系统或常用方法冲突。如果真的相同，请在SQL语句中使用一对&#96;&#96;（着重号）引起来。</p>
 <p><strong>查询常数</strong></p>
 <p>SELECT 查询还可以对常数进行查询。对的，就是在 SELECT 查询结果中增加一列固定的常数列。这列的</p>
-<p>取值是我们指定的，而不是从数据表中动态取出的。<br>SELECT ‘湖北省’,42,employee_id,first_name,last_name from employees;</p>
+<p>取值是我们指定的，而不是从数据表中动态取出的。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="string">&#x27;湖北省&#x27;</span>,<span class="number">42</span>,employee_id,first_name,last_name <span class="keyword">from</span> employees;</span><br></pre></td></tr></table></figure>
+
+
+
 <p><strong>显示表结构</strong></p>
 <p>使用DESCRIBE 或 DESC 命令，表示表结构。</p>
 <p><strong>过滤数据</strong></p>
-<p>SELECT * FROM employees where department_id&#x3D;90;<br>SELECT * FROM employees WHERE last_name&#x3D;’King’;</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> employees <span class="keyword">where</span> department_id<span class="operator">=</span><span class="number">90</span>;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> employees <span class="keyword">WHERE</span> last_name<span class="operator">=</span><span class="string">&#x27;King&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<p>MySQL大小写不敏感，King用小写king也能查出来</p>
-</blockquote>
+<p align="left">MySQL大小写不敏感，King用小写king也能查出来</p></blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/05/MySQL/02%E5%9F%BA%E6%9C%AC%E7%9A%84SELECT%E6%9F%A5%E8%AF%A2/" data-id="cm27uixte000fvkvbbb7v2zrk" data-title="02基本的SELECT查询" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/05/MySQL/02%E5%9F%BA%E6%9C%AC%E7%9A%84SELECT%E6%9F%A5%E8%AF%A2/" data-id="cm2sp9nul000cbwvb5dm9al1f" data-title="02基本的SELECT查询" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
